@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2017 at 05:45 PM
+-- Generation Time: Jan 26, 2017 at 06:02 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -21,7 +21,6 @@ SET time_zone = "+00:00";
 --
 DROP DATABASE IF EXISTS `getmetaxi`;
 CREATE DATABASE IF NOT EXISTS `getmetaxi` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-
 USE `getmetaxi`;
 
 -- --------------------------------------------------------
@@ -46,9 +45,12 @@ CREATE TABLE `address` (
 --
 -- Dumping data for table `address`
 --
+
 INSERT INTO `address` (`address_id`, `member_id`, `status`, `is_primary`, `address1`, `address2`, `nick_name`, `city_id`, `orgname`, `last_create`) VALUES
 (1, 1, 'P', 1, 'street line 1 ', 'buildding 4', '1', 1, '', '2017-01-22 19:28:48'),
-(2, 2, 'P', 1, 'street line 3', 'buildding a', '12', 1, '', '2017-01-22 19:29:13');
+(2, 2, 'P', 1, 'street line 3', 'buildding a', '12', 1, '', '2017-01-22 19:29:13'),
+(1000, 1016, 'P', 1, 'test address1', 'test address2', 'test_address1', 1, 'test orgname', '2017-01-24 14:35:21'),
+(1001, 1016, 'P', 0, 'test2 address1', 'test2 address2', 'test2_address1', 1, 'test2 orgname', '2017-01-24 14:40:34');
 
 -- --------------------------------------------------------
 
@@ -95,6 +97,122 @@ INSERT INTO `citydesc` (`city_id`, `name`, `language_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `language`
+--
+
+CREATE TABLE `language` (
+  `language_id` bigint(20) NOT NULL,
+  `local_name` char(16) NOT NULL,
+  `language` char(5) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  `encoding` varchar(32) NOT NULL,
+  `country` char(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `language`
+--
+
+INSERT INTO `language` (`language_id`, `local_name`, `language`, `description`, `encoding`, `country`) VALUES
+(1, 'en', 'en_US', 'English', 'utf8', 'US');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `member_id` bigint(20) NOT NULL,
+  `type` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`member_id`, `type`) VALUES
+(1, 'O'),
+(2, 'O'),
+(1016, 'U');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderattr`
+--
+
+CREATE TABLE `orderattr` (
+  `orders_id` bigint(20) NOT NULL,
+  `attr_name` varchar(32) NOT NULL,
+  `attr_value` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `orders_id` bigint(20) NOT NULL,
+  `time_placed` timestamp NOT NULL,
+  `last_update` timestamp NOT NULL,
+  `status` char(1) NOT NULL,
+  `users_id` bigint(20) NOT NULL,
+  `comment` varchar(254) NOT NULL,
+  `type` char(3) NOT NULL,
+  `source` char(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `taxioffice`
+--
+
+CREATE TABLE `taxioffice` (
+  `taxioffice_id` bigint(20) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '0',
+  `city_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `taxioffice`
+--
+
+INSERT INTO `taxioffice` (`taxioffice_id`, `status`, `city_id`) VALUES
+(1, 1, 1),
+(2, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `taxiofficedesc`
+--
+
+CREATE TABLE `taxiofficedesc` (
+  `taxioffice_id` bigint(20) NOT NULL,
+  `language_id` bigint(20) NOT NULL,
+  `phone` varchar(128) NOT NULL,
+  `fax` varchar(128) NOT NULL,
+  `mobile` varchar(128) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `url` varchar(254) NOT NULL,
+  `thumbnail` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `taxiofficedesc`
+--
+
+INSERT INTO `taxiofficedesc` (`taxioffice_id`, `language_id`, `phone`, `fax`, `mobile`, `name`, `url`, `thumbnail`) VALUES
+(1, 1, '123456789', '123456789', '123456789', 'An-Najah Taxi Office', '', ''),
+(2, 1, '123456789', '123456789', '123456789', 'Al-3temad Taxi Office', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `taxitype`
 --
 
@@ -121,9 +239,9 @@ INSERT INTO `taxitype` (`taxitype_id`, `identifer`, `max_passenger`) VALUES
 CREATE TABLE `taxitypedesc` (
   `taxitype_id` bigint(20) NOT NULL,
   `language_id` bigint(20) NOT NULL,
-  `name` varchar(128),
-  `description` varchar(128),
-  `thumbnail` varchar(128)
+  `name` varchar(128) DEFAULT NULL,
+  `description` varchar(128) DEFAULT NULL,
+  `thumbnail` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -133,62 +251,6 @@ CREATE TABLE `taxitypedesc` (
 INSERT INTO `taxitypedesc` (`taxitype_id`, `language_id`, `name`, `description`, `thumbnail`) VALUES
 (1, 1, '4 - Passenger Taxi', '4 - Passenger Taxi', ''),
 (2, 1, '7 - Passenger Taxi', '4 - Passenger Taxi', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `language`
---
-
-CREATE TABLE `language` (
-  `language_id` bigint(20) NOT NULL,
-  `local_name` char(16) NOT NULL,
-  `language` char(5) NOT NULL,
-  `description` varchar(128) NOT NULL,
-  `encoding` varchar(32) NOT NULL,
-  `country` char(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `language`
---
-
-INSERT INTO `language` (`language_id`, `local_name`, `language`, `description`, `encoding`, `country`) VALUES
-(1, 'en', 'en_US', 'English', 'utf8', 'US');
-
--- --------------------------------------------------------
-
--- Table structure for table `taxioffice`
---
-
-CREATE TABLE `taxioffice` (
-  `taxioffice_id` bigint(20) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  `city_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `taxioffice` (`taxioffice_id`, `status`, `city_id`) VALUES
-(1, 1, 1),
-(2, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `taxiofficedesc`
---
-
-CREATE TABLE `taxiofficedesc` (
-  `taxioffice_id` bigint(20) NOT NULL,
-  `language_id` bigint(20) NOT NULL,
-  `phone` varchar(128) NOT NULL,
-  `fax` varchar(128) NOT NULL,
-  `mobile` varchar(128) NOT NULL,
-  `name` varchar(128) NOT NULL,
-  `url` varchar(254) NOT NULL,
-  `thumbnail` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `taxiofficedesc` (`taxioffice_id`, `language_id`, `phone`, `fax`, `mobile`, `name`, `url`, `thumbnail`) VALUES
-(1, 1, '123456789', '123456789', '123456789', 'An-Najah Taxi Office', '', ''),
-(2, 1, '123456789', '123456789', '123456789', 'Al-3temad Taxi Office', '', '');
 
 -- --------------------------------------------------------
 
@@ -203,6 +265,13 @@ CREATE TABLE `userpwdhst` (
   `salt` varchar(128) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userpwdhst`
+--
+
+INSERT INTO `userpwdhst` (`userpwdhst_id`, `users_id`, `logon_password`, `salt`, `creation_date`) VALUES
+(1002, 1016, '123', '', '2017-01-24 12:49:33');
 
 -- --------------------------------------------------------
 
@@ -219,6 +288,13 @@ CREATE TABLE `userreg` (
   `password_expired` int(11) NOT NULL,
   `salt` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userreg`
+--
+
+INSERT INTO `userreg` (`users_id`, `status`, `logon_id`, `password`, `password_retries`, `password_expired`, `salt`) VALUES
+(1016, 1, 'fhindi@test.com', '123', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -239,23 +315,17 @@ CREATE TABLE `users` (
   `photo` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `member`
+-- Dumping data for table `users`
 --
 
-CREATE TABLE `member` (
-  `member_id` bigint(20) NOT NULL,
-  `type` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `users` (`users_id`, `user_type`, `date_of_birth`, `first_name`, `last_name`, `middle_name`, `phone`, `fax`, `mobile`, `photo`) VALUES
+(1016, 'R', '0000-00-00', 'Fathi', 'Hindi', '', '0597262705', '', '', '');
 
 --
 -- Indexes for dumped tables
 --
-INSERT INTO `member` (`member_id`, `type`) VALUES
-(1, 'O'),
-(2, 'O');
+
 --
 -- Indexes for table `address`
 --
@@ -280,7 +350,46 @@ ALTER TABLE `citydesc`
   ADD KEY `index_104` (`city_id`),
   ADD KEY `index_105` (`language_id`);
 
-  --
+--
+-- Indexes for table `language`
+--
+ALTER TABLE `language`
+  ADD PRIMARY KEY (`language_id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`member_id`,`type`);
+
+--
+-- Indexes for table `orderattr`
+--
+ALTER TABLE `orderattr`
+  ADD UNIQUE KEY `index_117` (`orders_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`orders_id`),
+  ADD KEY `index_116` (`users_id`) USING BTREE;
+
+--
+-- Indexes for table `taxioffice`
+--
+ALTER TABLE `taxioffice`
+  ADD PRIMARY KEY (`taxioffice_id`),
+  ADD KEY `index_107` (`city_id`);
+
+--
+-- Indexes for table `taxiofficedesc`
+--
+ALTER TABLE `taxiofficedesc`
+  ADD KEY `index_110` (`language_id`),
+  ADD KEY `index_111` (`taxioffice_id`);
+
+--
 -- Indexes for table `taxitype`
 --
 ALTER TABLE `taxitype`
@@ -294,22 +403,6 @@ ALTER TABLE `taxitypedesc`
   ADD PRIMARY KEY (`taxitype_id`,`language_id`) USING BTREE,
   ADD KEY `index_114` (`taxitype_id`),
   ADD KEY `index_115` (`language_id`);
-  
---
--- Indexes for table `language`
---
-ALTER TABLE `language`
-  ADD PRIMARY KEY (`language_id`);
-
-
--- Indexes for table `taxioffice`
---
-ALTER TABLE `taxioffice`
-  ADD PRIMARY KEY (`taxioffice_id`),
-  ADD KEY `index_107` (`city_id`);
-ALTER TABLE `taxiofficedesc`
-  ADD KEY `index_110` (`language_id`),
-  ADD KEY `index_111` (`taxioffice_id`);
 
 --
 -- Indexes for table `userpwdhst`
@@ -332,34 +425,34 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`users_id`);
 
 --
--- Indexes for table `member`
+-- AUTO_INCREMENT for dumped tables
 --
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`member_id` , `type`);
 
 --
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
---
--- AUTO_INCREMENT for table `userpwdhst`
---
-ALTER TABLE `member`
-  MODIFY `member_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
-  
+  MODIFY `address_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 --
 -- AUTO_INCREMENT for table `member`
 --
-ALTER TABLE `userpwdhst`
-  MODIFY `userpwdhst_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
-
+ALTER TABLE `member`
+  MODIFY `member_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1017;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `orders_id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `taxitype`
 --
 ALTER TABLE `taxitype`
-  MODIFY `taxitype_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
-
+  MODIFY `taxitype_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `userpwdhst`
+--
+ALTER TABLE `userpwdhst`
+  MODIFY `userpwdhst_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 --
 -- Constraints for dumped tables
 --
@@ -378,13 +471,17 @@ ALTER TABLE `citydesc`
   ADD CONSTRAINT `fk_107` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_108` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-  --
--- Constraints for table `taxitypedesc`
 --
+-- Constraints for table `orderattr`
+--
+ALTER TABLE `orderattr`
+  ADD CONSTRAINT `fk_116` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`orders_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE `taxitypedesc`
-  ADD CONSTRAINT `fk_113` FOREIGN KEY (`taxitype_id`) REFERENCES `taxitype` (`taxitype_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_114` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_115` FOREIGN KEY (`users_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `taxioffice`
@@ -394,9 +491,20 @@ ALTER TABLE `taxioffice`
   ADD CONSTRAINT `fk_111` FOREIGN KEY (`taxioffice_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `taxiofficedesc`
+--
 ALTER TABLE `taxiofficedesc`
   ADD CONSTRAINT `fk_105` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_109` FOREIGN KEY (`taxioffice_id`) REFERENCES `taxioffice` (`taxioffice_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `taxitypedesc`
+--
+ALTER TABLE `taxitypedesc`
+  ADD CONSTRAINT `fk_113` FOREIGN KEY (`taxitype_id`) REFERENCES `taxitype` (`taxitype_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_114` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `userpwdhst`
 --
 ALTER TABLE `userpwdhst`
@@ -408,12 +516,11 @@ ALTER TABLE `userpwdhst`
 ALTER TABLE `userreg`
   ADD CONSTRAINT `fk_100` FOREIGN KEY (`users_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-  --
--- Constraints for table `userreg`
+--
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_112` FOREIGN KEY (`users_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
