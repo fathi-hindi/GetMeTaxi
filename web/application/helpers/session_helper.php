@@ -8,7 +8,7 @@ function getLanguageId() {
     // Get current CodeIgniter instance
     $CI = & get_instance();
     // We need to use $CI->session instead of $this->session
-    $language_id = $this->session->userdata(SESSION_LANGUAGE_ID_KEY);
+    $language_id = $CI->session->userdata(SESSION_LANGUAGE_ID_KEY);
 	if (empty($language_id)) {
 		$language_id = LANGUAGE_ID_DEFAULT_VALUE;
 	}
