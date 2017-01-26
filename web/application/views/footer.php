@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-        <footer id="main-footer">
+        <?php if (!isset($hide_footer) || $hide_footer == false) { ?>
+		<footer id="main-footer">
             <div class="container">
                 <div class="row row-wrap">
                     <div class="col-md-3">
@@ -66,7 +67,7 @@
                 </div>
             </div>
         </footer>
-
+		<?php } ?>
         <script src="/public/js/jquery.js"></script>
         <script src="/public/js/bootstrap.js"></script>
         <script src="/public/js/slimmenu.js"></script>

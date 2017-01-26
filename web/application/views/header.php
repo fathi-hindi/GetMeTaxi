@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <!-- saved from url=(0061)http://remtsoy.com/tf_templates/traveler/demo_v1_7/index.html -->
-<html>
+<html class="<?php if(isset($html_class)) echo $html_class ?>">
 <head>
     <title>Booking</title>
 
@@ -40,7 +40,7 @@
     <link rel="alternate stylesheet" type="text/css" href="/public/css/schemes/scarlet.css" title="scarlet" media="all" />
 </head>
 
-<body>
+<body class="<?php if(isset($body_class)) echo $body_class ?>">
 
 
     <!-- FACEBOOK WIDGET -->
@@ -119,6 +119,7 @@
                 <div class="line"></div>
             </div>
         </div>
+		<?php if (!isset($hide_navigation) || $hide_navigation == false) { ?>
         <header id="main-header">
             <div class="header-top">
                 <div class="container">
@@ -539,3 +540,4 @@
                 </div>
             </div>
         </header>
+		<?php } ?>
