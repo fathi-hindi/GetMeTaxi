@@ -1,2 +1,8 @@
 /*YOUR CUSTOM STYLES*/
+.form-group-lg .form-control { 
+	border-radius:0;
+}
 
+.btn, .btn:hover {
+	border-radius:0;
+}
