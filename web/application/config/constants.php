@@ -92,3 +92,8 @@ define('TAXI_BOOKING_ENABLE', true);
 define('CAR_BOOKING_ENABLE', true);
 define('ACTIVETY_BOOKING_ENABLE', true);
 
+// Session keys.
+define('SESSION_LANGUAGE_ID_KEY', 'language_id');
+
+// Default value.
+define('LANGUAGE_ID_DEFAULT_VALUE', '1');
