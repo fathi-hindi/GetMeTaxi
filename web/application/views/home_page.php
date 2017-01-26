@@ -139,14 +139,14 @@
                                                             <div class="form-group form-group-lg form-group-icon-left">
 																<i class="fa fa-map-marker input-icon"></i>
                                                                 <label>Pick-up Location</label>
-                                                                <input class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text" />
+                                                                <input class="typeahead form-control" placeholder="City, Comapny, Street Address" type="text" />
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group form-group-lg form-group-icon-left">
 																<i class="fa fa-map-marker input-icon"></i>
                                                                 <label>Drop-off Location</label>
-                                                                <input class="typeahead form-control" placeholder="City, Airport, U.S. Zip" type="text" />
+                                                                <input class="typeahead form-control" placeholder="City, Comapny, Street Address" type="text" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -156,16 +156,16 @@
                                                                 <div class="form-group form-group-lg form-group-icon-left">
 																	<i class="fa fa-home input-icon input-icon-highlight"></i>
                                                                     <label>City</label>
-                                                                    <select class="typeahead form-control">
-																		<option>Nablue</option>
-																		<option>Jenine</option>
+                                                                    <select class="form-control" onChange="CheckoutHelperJS.onTaxiCityChange(this);">
+																		<option value="1">Nablue</option>
+																		<option value="2">Jenine</option>
 																	</select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-cab input-icon input-icon-highlight"></i>
                                                                     <label>Taxi Type</label>
-																	<select class="typeahead form-control">
+																	<select class="form-control">
 																		<option>4 Passengers</option>
 																		<option>7 Passengers</option>
 																	</select>
@@ -174,7 +174,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-cab input-icon"></i>
                                                                 <label>Office</label>
-                                                                <select class="typeahead form-control">
+                                                                <select class="form-control" id="taxiOffice">
 																	<option>Taxi Al3temad</option>
 																	<option>Taxi Ananjahag</option>
 																</select>
