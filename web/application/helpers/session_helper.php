@@ -14,3 +14,15 @@ function getLanguageId() {
 	}
 	return $language_id;
 }
+
+/**
+ * @Summary: Get user id from session.
+ * @Author:  Fathi Hindi - 01/26/2017.
+ */
+function getUserId() {
+    // Get current CodeIgniter instance
+    $CI = & get_instance();
+    // We need to use $CI->session instead of $this->session
+    $user_id = $CI->session->userdata(SESSION_USER_ID_KEY);
+	return '1016';
+}

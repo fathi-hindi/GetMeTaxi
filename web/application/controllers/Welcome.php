@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('checkout_model');
+	}
+	
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,8 +27,18 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('home_page');
-		$this->load->view('footer');
+		$data = array();
+		
+		$citys = $this->checkout_model->getAllAvialabelCity(getLanguageId());
+		$data['citys'] = $citys;
+		
+		$taxi_types = $this->checkout_model->getAllTaxiType(getLanguageId());
+		
+		$data['taxi_types'] = $taxi_types;
+		
+		$this->load->view('header', $data);
+		$this->load->view('home_page', $data);
+		$this->load->view('footer', $data);
+		
 	}
 }
