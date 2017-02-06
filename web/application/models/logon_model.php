@@ -105,6 +105,22 @@ Class Logon_model extends CI_Model {
             return false;
         }
     }
+	
+	/**
+     * @Summary: Check if logon Id and password is valid.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/10/2017.
+     */
+	public function isValidCredentials($logon_id, $password) {
+        $condition = "logon_id ='" . $logon_id . "' and password ='" . $password . "'";
+        $this->db->from('userreg');
+        $this->db->where($condition);
+        if ($this->db->count_all_results() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

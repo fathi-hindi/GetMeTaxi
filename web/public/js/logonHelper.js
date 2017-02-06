@@ -18,8 +18,8 @@ LogonHelperJS={
 		var email = form.email.value;
 		var phone = form.phone.value;
 		var password = form.password.value;
-		// validate parameters.
 		
+		// TODO : add front end validation.
 		$.ajax({
             url: "/logon/ajaxUserRegistration",
             type: "POST",
@@ -35,6 +35,36 @@ LogonHelperJS={
             },
 			error: function () {
 				document.getElementById('registrationErrorPanle').innerHTML = "Registration is not avialable now. Please try again.";
+			}
+        });
+	},
+	
+	/**
+	 * 
+	 */
+	ajaxUserLogon:function(){
+		document.getElementById('logonErrorPanle').innerHTML = "";
+		
+		var form = document.forms['userLogon'];
+		var logonId = form.logonId.value;
+		var password = form.password.value;
+		
+		// TODO: Add front end validation.
+		$.ajax({
+            url: "/logon/ajaxUserLogon",
+            type: "POST",
+			dataType: "JSON",
+            data: {logonId: logonId, password: password},
+            success: function (data) {	
+				if (data.status == 'sucsess') {
+					// TODO: Redirect to my account page.
+					alert('sucsess');
+				} else if(data.status == 'failed') {
+					document.getElementById('logonErrorPanle').innerHTML = data.error;
+				}
+            },
+			error: function () {
+				document.getElementById('logonErrorPanle').innerHTML = "Unable to sign in now. Please try again.";
 			}
         });
 	},

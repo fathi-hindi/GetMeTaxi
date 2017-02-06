@@ -63,6 +63,33 @@ class Logon extends CI_Controller {
 		exit;
 	}
 	
+	/**
+	 * 
+	 */
+	public function ajaxUserLogon()
+	{
+		$response = array();
+		$isValidForm = $this->validateLogonPostForm();
+		if ($isValidForm === TRUE) {
+			$logon_id = $this->input->post('logonId');
+			$password = $this->input->post('password');
+			
+			if ($this->logon_model->isValidCredentials($logon_id, $password)) {
+				$response['status'] = 'sucsess';
+			} else {
+				$response['status'] = 'failed';
+				$response['error'] = 'Invalid user name or password.';
+			}
+			
+		} else {
+			$response['status'] = 'failed';
+			$response['error'] = $isValidForm;
+		}
+		
+		echo json_encode($response);
+		exit;
+	}
+	
 	private function validateRegistrationPostForm() {
         $isValid = true;
 		if ($this->input->post()) {
@@ -81,6 +108,27 @@ class Logon extends CI_Controller {
 				return 'Please enter valid phone number.';
 			} else if (!isValidEmail($email)) {
 				return 'Please enter valid email address.';
+			} else if (!isValidPassword($password)) {
+				return 'Please enter valid password.';
+			} 
+		} else {
+			return 'Invalid request';
+		}
+		return $isValid;
+    }
+	/**
+	 *
+	 *
+	 */
+	private function validateLogonPostForm() {
+        $isValid = true;
+		if ($this->input->post()) {
+			// read parameters
+			$logon_id = $this->input->post('logonId');
+			$password = $this->input->post('password');
+			
+			if (!isValidlogonId($logon_id)) {
+				return 'Please enter valid user name or email.';
 			} else if (!isValidPassword($password)) {
 				return 'Please enter valid password.';
 			} 

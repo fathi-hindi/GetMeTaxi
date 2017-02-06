@@ -19,16 +19,17 @@
 						</div>
 						<div class="col-md-4">
 							<h3 class="mb15">Login</h3>
-							<form>
-								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+							<form name="userLogon" >
+								<p class="error-message" id='logonErrorPanle'></p>
+								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
 									<label>Username or email</label>
-									<input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
+									<input name="logonId" class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
 								</div>
 								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
 									<label>Password</label>
-									<input class="form-control" type="password" placeholder="my secret password" />
+									<input name="password" class="form-control" type="password" placeholder="My secret password" />
 								</div>
-								<input class="btn btn-primary" type="submit" value="Sign in" />
+								<input class="btn btn-primary" type="button" onClick="LogonHelperJS.ajaxUserLogon();" value="Sign in" />
 							</form>
 						</div>
 						<div class="col-md-4">

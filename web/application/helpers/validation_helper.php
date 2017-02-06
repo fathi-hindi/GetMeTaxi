@@ -13,6 +13,18 @@ function isValidEmail($email) {
 }
 
 /**
+ * @Summary: validate logon id.
+ * @Author:  Fathi Hindi - 01/27/2017.
+ */
+function isValidlogonId($logonId) {
+	$valid = true;
+	if ($logonId == "") {
+		$valid = false;
+	}
+	return $valid;
+}
+
+/**
  * @Summary: validate first name.
  * @Author:  Fathi Hindi - 01/27/2017.
  */
