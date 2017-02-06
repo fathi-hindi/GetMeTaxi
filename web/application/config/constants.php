@@ -98,3 +98,26 @@ define('SESSION_USER_ID_KEY', 'users_id');
 
 // Default value.
 define('LANGUAGE_ID_DEFAULT_VALUE', '1');
+
+
+// USER STATUS
+define('USER_STATUS_DISABLED', '0');
+define('USER_STATUS_ENABLED', '1');
+define('USER_STATUS_PENDING_APPROVAL', '2');
+define('USER_STATUS_REJECTED', '3');
+define('USER_STATUS_PENDING_ACTIVATION', '4');
+
+// USER TYPE
+define('USER_TYPE_REGISTERED', 'R');
+define('USER_TYPE_GUEST', 'G');
+define('USER_STATUS_DRIVER', 'D');
+define('USER_STATUS_ADMIN', 'A');
+define('USER_STATUS_OFFICE', 'O');
+
+// MEMBER TYPE
+define('MEMBER_TYPE_USER', 'U');
+define('MEMBER_TYPE_OFFICE', 'O');
+
+// ADDRESS STATUS
+define('ADDRESS_STATUS_PERMANENT', 'P');
+define('USER_STATUS_TEMPORARY', 'T');

@@ -11,17 +11,17 @@ LogonHelperJS={
 	 */
 	ajaxUserRegistration:function(){
 		var form = document.forms['userRegistration'];
-		var firstName = form.firstName;
-		var lastName = form.lastName;
-		var email = form.email;
-		var phone = form.phone;
-		var password = form.password;
+		var firstName = form.firstName.value;
+		var lastName = form.lastName.value;
+		var email = form.email.value;
+		var phone = form.phone.value;
+		var password = form.password.value;
 		// validate parameters.
 		
 		// send request.
 		$.ajax({
             url: "/logon/ajaxUserRegistration",
-            type: "GET",
+            type: "POST",
 			dataType: "JSON",
             data: {firstName: firstName, lastName: lastName, email: email, phone: phone, password: password},
             success: function (data) {	
