@@ -39,15 +39,21 @@ class Logon extends CI_Controller {
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 			
-			$users_id = $this->logon_model->createNewUser(USER_TYPE_REGISTERED, $frist_name, $last_name, $phone, USER_STATUS_ENABLED, $email, $password);
-			if ($users_id > 0) {
-				$response['usersId'] = $users_id;
-				$response['status'] = 'sucsess';
-			} else {
-				// data base error.
+			if ($this->logon_model->isExsistingLogonId($email)) {
 				$response['status'] = 'failed';
-				$response['error'] = 'Unable to register now, Please try again later on.';
+				$response['error'] = 'Email is already exsist. If you have account please try to login.';
+			} else {
+				$users_id = $this->logon_model->createNewUser(USER_TYPE_REGISTERED, $frist_name, $last_name, $phone, USER_STATUS_ENABLED, $email, $password);
+				if ($users_id > 0) {
+					$response['usersId'] = $users_id;
+					$response['status'] = 'sucsess';
+				} else {
+					// data base error.
+					$response['status'] = 'failed';
+					$response['error'] = 'Unable to register now, Please try again later on.';
+				}
 			}
+			
 		} else {
 			$response['status'] = 'failed';
 			$response['error'] = $isValidForm;

@@ -34,6 +34,7 @@
 						<div class="col-md-4">
 							<h3 class="mb15">New To Traveler?</h3>
 							<form name="userRegistration" >
+								<p class="error-message" id='registrationErrorPanle'></p>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
@@ -47,14 +48,14 @@
 											<input class="form-control" name="lastName" placeholder="e.g. Doe" type="text" />
 										</div>
 									</div>
-								</div>	
-								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
-									<label>Email</label>
-									<input class="form-control" name="email" placeholder="e.g. johndoe@gmail.com" type="text" />
 								</div>
 								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
 									<label>Phone</label>
 									<input class="form-control" name="phone" placeholder="e.g. +970597262705" type="text" />
+								</div>
+								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
+									<label>Email</label>
+									<input class="form-control" name="email" placeholder="e.g. johndoe@gmail.com" type="text" />
 								</div>
 								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
 									<label>Password</label>

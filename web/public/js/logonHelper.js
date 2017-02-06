@@ -10,6 +10,8 @@ LogonHelperJS={
 	 * 
 	 */
 	ajaxUserRegistration:function(){
+		document.getElementById('registrationErrorPanle').innerHTML = "";
+		
 		var form = document.forms['userRegistration'];
 		var firstName = form.firstName.value;
 		var lastName = form.lastName.value;
@@ -18,15 +20,22 @@ LogonHelperJS={
 		var password = form.password.value;
 		// validate parameters.
 		
-		// send request.
 		$.ajax({
             url: "/logon/ajaxUserRegistration",
             type: "POST",
 			dataType: "JSON",
             data: {firstName: firstName, lastName: lastName, email: email, phone: phone, password: password},
             success: function (data) {	
-				
+				if (data.status == 'sucsess') {
+					// TODO: Redirect to my account page.
+					alert('sucsess');
+				} else if(data.status == 'failed') {
+					document.getElementById('registrationErrorPanle').innerHTML = data.error;
+				}
             },
+			error: function () {
+				document.getElementById('registrationErrorPanle').innerHTML = "Registration is not avialable now. Please try again.";
+			}
         });
 	},
 	

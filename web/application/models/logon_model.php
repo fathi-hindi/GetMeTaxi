@@ -89,6 +89,22 @@ Class Logon_model extends CI_Model {
 	public function insertUserpwdhst($data) {
 		return $this->db->insert('userpwdhst', $data);
 	}
+	
+	/**
+     * @Summary: Check if logonId is already exsist.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/10/2017.
+     */
+	public function isExsistingLogonId($logon_id) {
+        $condition = "logon_id =" . "'" . $logon_id . "'";
+        $this->db->from('userreg');
+        $this->db->where($condition);
+        if ($this->db->count_all_results() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>
