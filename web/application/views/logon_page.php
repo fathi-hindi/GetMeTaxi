@@ -33,20 +33,34 @@
 						</div>
 						<div class="col-md-4">
 							<h3 class="mb15">New To Traveler?</h3>
-							<form>
-								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-									<label>Full Name</label>
-									<input class="form-control" placeholder="e.g. John Doe" type="text" />
+							<form name="userRegistration" >
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+											<label>First Name</label>
+											<input class="form-control" name="firstName" placeholder="e.g. John" type="text" />
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+											<label>Last Name</label>
+											<input class="form-control" name="lastName" placeholder="e.g. Doe" type="text" />
+										</div>
+									</div>
+								</div>	
+								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
+									<label>Email</label>
+									<input class="form-control" name="email" placeholder="e.g. johndoe@gmail.com" type="text" />
 								</div>
 								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
-									<label>Emai</label>
-									<input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
+									<label>Phone</label>
+									<input class="form-control" name="phone" placeholder="e.g. +970597262705" type="text" />
 								</div>
 								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
 									<label>Password</label>
-									<input class="form-control" type="password" placeholder="my secret password" />
+									<input class="form-control" name="password" type="password" placeholder="My secret password" />
 								</div>
-								<input class="btn btn-primary" type="submit" value="Sign up for Traveler" />
+								<input class="btn btn-primary" type="button" onClick="LogonHelperJS.ajaxUserRegistration();" value="Sign up for Traveler" />
 							</form>
 						</div>
 					</div>
