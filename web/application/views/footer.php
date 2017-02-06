@@ -90,6 +90,7 @@
         <script src="/public/js/switcher.js"></script>
 		
 		<script src="/public/js/checkoutHelper.js"></script>
+		<script src="/public/js/logonHelper.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     </div>
 </body>
