@@ -140,12 +140,17 @@
                         <div class="col-md-4">
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
-                                    <li class="top-user-area-avatar">
-                                        <a href="user-profile.html">
+                                    
+									<?php if (isLoggedIn()) { ?>
+										<li class="top-user-area-avatar">
+											<a href="user-profile.html">
                                             <img class="origin round" src="/public/images/amaze_40x40.jpg" alt="Image Alternative text" title="AMaze" />Hi, John</a>
-                                    </li>
-                                    <li><a href="#">Sign Out</a>
-                                    </li>
+										</li>
+										<li><a href="/logon/logout">Sign Out</a></li>
+									<?php } else { ?>
+										<li><a href="/logon">Sign In</a></li>
+									<?php } ?>
+                                    
                                     <li class="nav-drop"><a href="#">USD $<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
                                         <ul class="list nav-drop-menu">
                                             <li><a href="#">EUR<span class="right">€</span></a>

@@ -9,10 +9,13 @@ class Logon extends CI_Controller {
     }
 	
 	/**
-	 * 
+	 * Main function for logon controller.
 	 */
 	public function index()
 	{
+		if (isLoggedIn()) {
+            redirect('/account', 'refresh');
+        }
 		$data = array();
 		$data['hide_navigation'] = true;
 		$data['hide_footer'] = true;
@@ -25,10 +28,13 @@ class Logon extends CI_Controller {
 	}
 	
 	/**
-	 * 
+	 * AJAX Regsitration function.
 	 */
 	public function ajaxUserRegistration()
 	{
+		if (isLoggedIn()) {
+            redirect('/account', 'refresh');
+        }
 		$response = array();
 		$isValidForm = $this->validateRegistrationPostForm();
 		if ($isValidForm === TRUE) {
@@ -45,7 +51,7 @@ class Logon extends CI_Controller {
 			} else {
 				$users_id = $this->logon_model->createNewUser(USER_TYPE_REGISTERED, $frist_name, $last_name, $phone, USER_STATUS_ENABLED, $email, $password);
 				if ($users_id > 0) {
-					$response['usersId'] = $users_id;
+					$this->createNewSession($users_id);
 					$response['status'] = 'sucsess';
 				} else {
 					// data base error.
@@ -64,10 +70,13 @@ class Logon extends CI_Controller {
 	}
 	
 	/**
-	 * 
+	 * AJAX logon function.
 	 */
 	public function ajaxUserLogon()
 	{
+		if (isLoggedIn()) {
+            redirect('/account', 'refresh');
+        }
 		$response = array();
 		$isValidForm = $this->validateLogonPostForm();
 		if ($isValidForm === TRUE) {
@@ -75,7 +84,14 @@ class Logon extends CI_Controller {
 			$password = $this->input->post('password');
 			
 			if ($this->logon_model->isValidCredentials($logon_id, $password)) {
-				$response['status'] = 'sucsess';
+				$result = $this->logon_model->findUserByLogonId($logon_id);
+				if ($result) {
+					$response['status'] = 'sucsess';
+					$this->createNewSession($result->users_id);
+				} else {
+					$response['status'] = 'failed';
+					$response['error'] = 'Invalid logon Id.';
+				}
 			} else {
 				$response['status'] = 'failed';
 				$response['error'] = 'Invalid user name or password.';
@@ -90,6 +106,9 @@ class Logon extends CI_Controller {
 		exit;
 	}
 	
+	/*
+	 * Server side validation for registration for request.
+	 */
 	private function validateRegistrationPostForm() {
         $isValid = true;
 		if ($this->input->post()) {
@@ -116,9 +135,9 @@ class Logon extends CI_Controller {
 		}
 		return $isValid;
     }
+	
 	/**
-	 *
-	 *
+	 * Server side validation for logon form request.
 	 */
 	private function validateLogonPostForm() {
         $isValid = true;
@@ -137,4 +156,27 @@ class Logon extends CI_Controller {
 		}
 		return $isValid;
     }
+	
+	/**
+	 * Create new session when the customer is logon or registor.
+	 */
+	private function createNewSession($users_id) {
+        $this->session->set_userdata(SESSION_USER_ID_KEY, $users_id);         
+    }
+	
+	/**
+     * @Summary: Logout current session.
+     * @Author:  Fathi Hindi - 02/06/2017.
+     */
+    public function logout() {
+		$user_data = $this->session->all_userdata();
+        foreach ($user_data as $key => $value) {
+            if ($key != 'session_id' && $key != 'ip_address' && $key != 'user_agent' && $key != 'last_activity') {
+                $this->session->unset_userdata($key);
+            }
+        }
+        $this->session->sess_destroy();
+		// after log out redirect the customer to the home page.
+        redirect('/');
+	}
 }

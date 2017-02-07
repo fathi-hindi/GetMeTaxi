@@ -27,8 +27,7 @@ LogonHelperJS={
             data: {firstName: firstName, lastName: lastName, email: email, phone: phone, password: password},
             success: function (data) {	
 				if (data.status == 'sucsess') {
-					// TODO: Redirect to my account page.
-					alert('sucsess');
+					document.location.href = "/account";
 				} else if(data.status == 'failed') {
 					document.getElementById('registrationErrorPanle').innerHTML = data.error;
 				}
@@ -57,8 +56,7 @@ LogonHelperJS={
             data: {logonId: logonId, password: password},
             success: function (data) {	
 				if (data.status == 'sucsess') {
-					// TODO: Redirect to my account page.
-					alert('sucsess');
+					document.location.href = "/account";
 				} else if(data.status == 'failed') {
 					document.getElementById('logonErrorPanle').innerHTML = data.error;
 				}
