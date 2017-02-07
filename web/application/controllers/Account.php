@@ -24,7 +24,7 @@ class Account extends CI_Controller {
 	/**
 	 * Main function for account setting view.
 	 */
-	public function accountSetting()
+	public function setting()
 	{
 		$data = array();
 		$this->load->view('header', $data);
@@ -35,7 +35,7 @@ class Account extends CI_Controller {
 	/**
 	 * Main function for booking history view.
 	 */
-	public function bookingHistory()
+	public function history()
 	{
 		$data = array();
 		$this->load->view('header', $data);
