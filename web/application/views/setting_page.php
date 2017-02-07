@@ -61,21 +61,22 @@
 				</div>
 				<div class="col-md-4 col-md-offset-1">
 					<h4>Change Password</h4>
-					<form>
+					<form name="changePassword" >
+						<p class="error-message" id='changePasswordErrorPanle'></p>
 						<div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
 							<label>Current Password</label>
-							<input class="form-control" type="password" />
+							<input class="form-control" type="password" name="oldPassword" />
 						</div>
 						<div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
 							<label>New Password</label>
-							<input class="form-control" type="password" />
+							<input class="form-control" type="password" name="newPassword" />
 						</div>
 						<div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
 							<label>New Password Again</label>
-							<input class="form-control" type="password" />
+							<input class="form-control" type="password" name="confirmPassword" />
 						</div>
 						<hr />
-						<input class="btn btn-primary" type="submit" value="Change Password" />
+						<input class="btn btn-primary" type="button" value="Change Password" onClick="LogonHelperJS.ajaxChangePassword();" />
 					</form>
 				</div>
 			</div>

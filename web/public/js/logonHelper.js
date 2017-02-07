@@ -68,6 +68,36 @@ LogonHelperJS={
 	},
 	
 	/**
+	 * Ajax change password in my account.
+	 */
+	ajaxChangePassword:function(){
+		document.getElementById('changePasswordErrorPanle').innerHTML = "";
+		
+		var form = document.forms['changePassword'];
+		var oldPassword = form.oldPassword.value;
+		var newPassword = form.newPassword.value;
+		var confirmNewPassword = form.confirmPassword.value;
+		
+		// TODO : add front end validation.
+		$.ajax({
+            url: "/account/ajaxChangePassword",
+            type: "POST",
+			dataType: "JSON",
+            data: {oldPassword: oldPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword},
+            success: function (data) {	
+				if (data.status == 'sucsess') {
+					alert(data.sucsess_message);
+				} else if(data.status == 'failed') {
+					document.getElementById('changePasswordErrorPanle').innerHTML = data.error;
+				}
+            },
+			error: function () {
+				document.getElementById('changePasswordErrorPanle').innerHTML = "Unable to updat your password now. Please try again.";
+			}
+        });
+	},
+	
+	/**
 	 * 
 	 * 
 	 * 

@@ -142,6 +142,42 @@ Class Logon_model extends CI_Model {
             return false;
         }
     }
+	
+	/**
+     * @Summary: Change user password.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/10/2017.
+     */
+	public function changePassword($users_id, $password) {
+		$userpwdhst_data = array (
+			'users_id' => $users_id,
+			'logon_password' => $password
+		);
+		$this->insertUserpwdhst($userpwdhst_data);
+		$this->db->reset_query();
+		$this->db->where('users_id', $users_id);
+        return $this->db->update('userreg',array("password" => $password));
+	}
+	
+	/**
+     * @Summary: Check if password is valid or not.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/10/2017.
+     */
+	public function isValidPassword($users_id, $password) {
+        $isValid = false;
+		$this->db->select('userreg.password, userreg.salt');
+        $this->db->from('userreg');
+        $this->db->where('users_id', $users_id);
+        $query = $this->db->get();
+
+        if ($query && $query->result()[0]) {
+            if ($query->result()[0]->password == $password) {
+				$isValid = true;
+			}
+        }
+		return $isValid;
+	}
 }
 
 ?>

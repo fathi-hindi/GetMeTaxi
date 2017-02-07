@@ -8,6 +8,7 @@ class Account extends CI_Controller {
 		if (!isLoggedIn()) {
             redirect('/logon', 'refresh');
         }
+		$this->load->model('logon_model');
     }
 	
 	/**
@@ -41,5 +42,52 @@ class Account extends CI_Controller {
 		$this->load->view('header', $data);
 		$this->load->view('history_page', $data);
 		$this->load->view('footer', $data);
+	}
+	
+	/**
+     * @Summary: AJAX Change password.
+     * @Author:  Fathi Hindi - 02/06/2017.
+     */
+    public function ajaxChangePassword() {
+		$responseData = array();
+		
+		$old_password = $this->input->post('oldPassword');
+		$new_password = $this->input->post('newPassword');
+		$confirm_new_password = $this->input->post('confirmNewPassword');
+		
+		if (!$this->isValidCurrentPassword($old_password)) {
+			$responseData['status'] = 'failed';
+			$responseData['error'] = 'Invalid current password.';
+		} else if ($new_password == null || $confirm_new_password == null) {
+			$responseData['status'] = 'failed';
+			$responseData['error'] = 'Please enter valid new password.';
+		} elseif ($new_password != $confirm_new_password) {
+			$responseData['status'] = 'failed';
+			$responseData['error'] = 'Password and confirmation password are not match.';
+		} else {
+			$result = $this->logon_model->changePassword(getUserId(), $new_password);
+			if ($result > 0) {
+				$responseData['status'] = 'sucsess';
+				$responseData['sucsess_message'] = 'Your password has been updated sucsessfuly.';
+			} else {
+				$responseData['status'] = 'failed';
+				$responseData['error'] = 'Unable to update your password. Please try again.';
+			}
+		}
+		
+		echo json_encode($responseData);
+		exit;
+	}
+	
+	/**
+     * @Summary: AJAX Change password.
+     * @Author:  Fathi Hindi - 02/06/2017.
+     */
+    private function isValidCurrentPassword($current_password) {
+		$isValid = false;
+		if ($current_password != null && $current_password != "") {
+			$isValid = $this->logon_model->isValidPassword(getUserId(), $current_password);
+		} 
+		return $isValid;
 	}
 }
