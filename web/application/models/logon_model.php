@@ -144,6 +144,27 @@ Class Logon_model extends CI_Model {
     }
 	
 	/**
+     * @Summary: Find user by users id.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/10/2017.
+     */
+    public function findUserByUsersId($users_id) {
+        $condition = "u.users_id ='" . $users_id . "'";
+        $this->db->select('u.users_id, u.user_type, u.date_of_birth, u.first_name, u.last_name, u.middle_name, u.phone, u.fax, u.mobile, u.photo, ur.status, ur.logon_id, ur.password, ur.password_retries, ur.password_expired, ur.salt');
+        $this->db->from('userreg as ur');
+		$this->db->join('users as u' , "u.users_id = ur.users_id");
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result()[0];
+        } else {
+            return false;
+        }
+    }
+	
+	/**
      * @Summary: Change user password.
      * @Author:  Fathi Hindi.
 	 * @CreationDate: 01/10/2017.
@@ -177,6 +198,16 @@ Class Logon_model extends CI_Model {
 			}
         }
 		return $isValid;
+	}
+	
+	/**
+     * @Summary: Update account information.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 02/07/2017.
+     */
+	public function accountUpdate($users_id, $data) {
+		$this->db->where('users_id', $users_id);
+        return $this->db->update('users', $data);
 	}
 }
 

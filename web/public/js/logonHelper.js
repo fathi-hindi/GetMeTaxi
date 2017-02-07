@@ -98,6 +98,46 @@ LogonHelperJS={
 	},
 	
 	/**
+	 * Ajax change password in my account.
+	 */
+	ajaxUpdateAccount:function(){
+		document.getElementById('updateAccountErrorPanle').innerHTML = "";
+		
+		var form = document.forms['updateAccount'];
+		var firstName = form.firstName.value;
+		var middleName = form.middleName.value;
+		var lastName = form.lastName.value;
+		var phone = form.phone.value;
+		var mobile = form.mobile.value;
+		var fax = form.fax.value;
+		var dateOfBirth = form.dateOfBirth.value;
+		// TODO : add front end validation.
+		$.ajax({
+            url: "/account/ajaxAccountUpdate",
+            type: "POST",
+			dataType: "JSON",
+            data: {firstName: firstName,
+					middleName: middleName,
+					lastName: lastName,
+					phone: phone,
+					mobile: mobile,
+					fax: fax,
+					dateOfBirth: dateOfBirth
+			},
+            success: function (data) {	
+				if (data.status == 'sucsess') {
+					alert(data.sucsess_message);
+				} else if(data.status == 'failed') {
+					document.getElementById('updateAccountErrorPanle').innerHTML = data.error;
+				}
+            },
+			error: function () {
+				document.getElementById('updateAccountErrorPanle').innerHTML = "Unable to updat your account information now. Please try again.";
+			}
+        });
+	},
+	
+	/**
 	 * 
 	 * 
 	 * 
