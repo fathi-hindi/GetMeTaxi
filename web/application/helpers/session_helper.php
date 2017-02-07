@@ -26,3 +26,17 @@ function getUserId() {
     $user_id = $CI->session->userdata(SESSION_USER_ID_KEY);
 	return '1016';
 }
+
+/**
+ * @Summary: Check if the current user is logged in or not.
+ * @Author:  Fathi Hindi - 02/07/2017.
+ */
+function isLoggedIn() {
+    $isLoggedIn = false;
+	$CI = & get_instance();
+    $user_id = $CI->session->userdata(SESSION_USER_ID_KEY);
+	if (isset($user_id) && $user_id > 0) {
+		$isLoggedIn = true;
+	}
+	return $isLoggedIn;
+}
