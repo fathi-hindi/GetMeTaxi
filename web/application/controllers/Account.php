@@ -20,4 +20,26 @@ class Account extends CI_Controller {
 		$this->load->view('myaccount_page', $data);
 		$this->load->view('footer', $data);
 	}
+	
+	/**
+	 * Main function for account setting view.
+	 */
+	public function accountSetting()
+	{
+		$data = array();
+		$this->load->view('header', $data);
+		$this->load->view('setting_page', $data);
+		$this->load->view('footer', $data);
+	}
+	
+	/**
+	 * Main function for booking history view.
+	 */
+	public function bookingHistory()
+	{
+		$data = array();
+		$this->load->view('header', $data);
+		$this->load->view('history_page', $data);
+		$this->load->view('footer', $data);
+	}
 }
