@@ -9,6 +9,7 @@ class Account extends CI_Controller {
             redirect('/logon', 'refresh');
         }
 		$this->load->model('logon_model');
+		$this->load->model('checkout_model');
     }
 	
 	/**
@@ -43,6 +44,10 @@ class Account extends CI_Controller {
 	public function history()
 	{
 		$data = array();
+		$result = $this->checkout_model->findOrdersByUsersId(getUserId());
+		if ($result) {
+			$data['orders'] = $result;
+		}
 		$this->load->view('header', $data);
 		$this->load->view('history_page', $data);
 		$this->load->view('footer', $data);
