@@ -14,3 +14,19 @@
 .nondisplay {
 	display:none;
 }
+
+#logonAtCheckoutModal .modal-dialog {
+	width: 60%;
+}
+
+#logonAtCheckoutModal  .guest {
+	border-left:1px solid #e5e5e5;
+}
+#logonAtCheckoutModal  .modal-content {
+	border-radius:0;
+}
+
+#logonAtCheckoutModal .modal-header {
+	padding-top:5px;
+	padding-bottom:5px;
+}

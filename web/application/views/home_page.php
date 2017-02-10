@@ -453,3 +453,4 @@
 		</div>
 	</div>
 </div>
+<?php include('logon_at_checkout_modal.php'); ?>

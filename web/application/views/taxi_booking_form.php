@@ -2,7 +2,7 @@
 <div class="tab-pane fade" id="tab-2">
 	<h2>Booking Your Taxi Now</h2>
 	<p id="taxi_error-message" class="error-message"></p>
-	<div class="" id="taxi_step1">
+	<div>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group form-group-lg form-group-icon-left">
@@ -68,55 +68,9 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group form-group-lg form-group-icon-left">
-						<label>You Are Already Have Account? <a href="/logon">Please Sing In.</a></label>
-						<button class="btn btn-primary btn-lg" onClick="CheckoutHelperJS.taxi_goToStep(2);">Booking Now As Guest</button>
+						<label>Click below button to finish your booking.</label>
+						<button class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#logonAtCheckoutModal">PLACE YOUR BOOKING</button>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="nondisplay" id="taxi_step2">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group form-group-lg form-group-icon-left">
-					<i class="fa fa-user input-icon"></i>
-					<label>First Name</label>
-					<input class="typeahead form-control" id="taxi_firstName" placeholder="First Name" type="text" />
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group form-group-lg form-group-icon-left">
-					<i class="fa fa-user input-icon"></i>
-					<label>Last Name</label>
-					<input class="typeahead form-control" id="taxi_lastName" placeholder="Last Name" type="text" />
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group form-group-lg form-group-icon-left">
-					<i class="fa fa-map-marker input-icon"></i>
-					<label>Phone Number</label>
-					<input class="typeahead form-control" id="taxi_phone" placeholder="Phome number (In case of contact you.)" type="text" />
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group form-group-lg form-group-icon-left">
-					<i class="fa fa-envelope input-icon"></i>
-					<label>Email</label>
-					<input class="typeahead form-control" id="taxi_email" placeholder="Email Address" type="text" />
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group form-group-lg form-group-icon-left">
-					<button class="btn btn-primary btn-lg" onClick="CheckoutHelperJS.taxi_goToStep(1);"> &lt; Back </button>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group form-group-lg form-group-icon-left">
-					<button class="btn btn-primary btn-lg" onClick="CheckoutHelperJS.taxi_step2ButtonHandler();">Finish Your Booking</button>
 				</div>
 			</div>
 		</div>
