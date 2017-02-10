@@ -3,6 +3,11 @@ if (!defined('BASEPATH'))   exit('No direct script access allowed');
 
 Class Checkout_model extends CI_Model {
 	
+	function __construct() {
+        parent::__construct();
+        $this->load->model('address_model');
+    }
+	
 	/**
      * @Summary: Get all avialable offices in a specified city.
      * @Author:  Fathi Hindi.
@@ -112,5 +117,44 @@ Class Checkout_model extends CI_Model {
         $affectedRow = $this->db->affected_rows();
         return $affectedRow;
 	}
+	
+	/**
+     * @Summary: Find orders by user id.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 02/07/2017.
+     */
+    public function findOrdersByUsersId($users_id) {
+        $result = array();
+		$condition = "o.users_id ='" . $users_id . "'";
+        $this->db->select('o.orders_id, o.time_placed, o.last_update, o.status, o.users_id, o.comment, o.type, o.source');
+        $this->db->from('orders as o');
+        $this->db->where($condition);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+			foreach($query->result() as $order) {
+				$this->db->select('oa.attr_name, oa.attr_value');
+				$this->db->from('orderattr as oa');
+				$this->db->where('oa.orders_id = ' . $order->orders_id);
+				$query1 = $this->db->get();
+				
+				foreach ($query1->result() as $row) {
+					if ($row->attr_name == 'FROM_ADDRESS_ID') {
+						$from_address_id = $row->attr_value;
+						$order->from_address = $this->address_model->findAddressById($from_address_id);
+					} else if ($row->attr_name == 'TO_ADDRESS_ID') {
+						$to_address_id = $row->attr_value;
+						$order->to_address = $this->address_model->findAddressById($to_address_id);
+					} else if ($row->attr_name == 'DATE') {
+						$order->date = $row->attr_value;
+					} else if ($row->attr_name == 'TIME') {
+						$order->time = $row->attr_value;
+					}
+				}
+				$result[] = $order;
+			}
+        }
+		return $result;
+    }
 }
 ?>
