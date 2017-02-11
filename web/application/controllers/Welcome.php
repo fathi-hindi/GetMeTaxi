@@ -41,4 +41,17 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer', $data);
 		
 	}
+	
+	public function commingSoon()
+	{	
+		$data = array();
+		$data['hide_navigation'] = true;
+		$data['hide_footer'] = true;
+		$data['body_class'] = 'full';
+		$data['html_class'] = 'full';
+		
+		$this->load->view('header', $data);
+		$this->load->view('comming_soon', $data);
+		$this->load->view('footer', $data);
+	}
 }
