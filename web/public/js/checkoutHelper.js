@@ -71,7 +71,7 @@ CheckoutHelperJS={
             
 			success: function (data) {
 				if (data['status'] == 'sucsess') {
-					document.location.href = '/Checkout/confirmation?ordersId=' + data['orders_id'];
+					document.location.href = '/Checkout/confirmation?orderId=' + data['orders_id'];
 				} else {
 					this.taxi_setErrorMessage(data['error_message']);
 				}
