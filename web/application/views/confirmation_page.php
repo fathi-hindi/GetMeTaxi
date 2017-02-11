@@ -3,10 +3,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<?php if (isset($order) && $order != false) { ?>
 			<i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>	
-			<h2 class="text-center">John, your booking was successful!</h2>
+			<h2 class="text-center">Thank you for booking!</h2>
 			<h5 class="text-center mb30">Booking details has been send to johndoe@gmail.com</h5>
-			<h5 class="text-center mb30">Order #: 12345600</h5>
+			<h5 class="text-center mb30">Order #: <?php echo $order->orders_id; ?></h5>
 			<ul class="order-payment-list list mb30">
 				<li>
 					<div class="row">
@@ -15,25 +16,25 @@
 								<i class="fa fa-map-marker"></i>
 								Pick-up Location:
 							</h5>
-							<p>Nablus, palesting street.</p>
+							<p><?php if (isset($order->from_address)) echo $order->from_address->address1; ?></p>
 							<hr/>
 							<h5>
 								<i class="fa fa-map-marker"></i>
 								Drop-off Location:
 							</h5>
-							<p>Nablus, rafedya street.</p>
+							<p><?php if (isset($order->to_address)) echo $order->to_address->address1; ?></p>
 							<hr/>
 							<h5>
 								<i class="fa fa-calendar"></i>
 								Pick-up Date:
 							</h5>
-							<p>April 24, 2016</p>
+							<p><?php if (isset($order->date)) echo $order->date; ?></p>
 							<hr/>
 							<h5>
 								<i class="fa fa-clock-o"></i>
 								Pick-up Time:
 							</h5>
-							<p>09:35 AM</p>
+							<p><?php if (isset($order->time)) echo $order->time; ?></p>
 						</div>
 						<div class="col-md-5">
 							<div class="booking-item-payment">
@@ -76,6 +77,9 @@
 					</p>
 				</li>
 			</ul>
+		<?php } else { ?>
+			<h1><?php echo $error_message; ?></h1>
+		<?php } ?>
 		</div>
 	</div>
 	<div class="gap"></div>
