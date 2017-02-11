@@ -19,6 +19,18 @@ class Checkout extends CI_Controller {
 	}
 	
 	/**
+	 * 
+	 */
+	public function confirmation()
+	{
+		$data = array();
+		
+		$this->load->view('header', $data);
+		$this->load->view('confirmation_page', $data);
+		$this->load->view('footer', $data);
+	}
+	
+	/**
 	 * Get all avialable offices in a specified city.
 	 */
 	public function ajaxGetOfficesByCity() {	
