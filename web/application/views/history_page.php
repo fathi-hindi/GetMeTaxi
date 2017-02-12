@@ -30,7 +30,7 @@
 				<tbody>
 					<?php foreach ($orders as $order) { ?>
 					<tr>
-						<td><?php echo $order->orders_id; ?></td>
+						<td><a href="/order/orderDetails?orderId=<?php echo $order->orders_id; ?>"><?php echo $order->orders_id; ?></a></td>
 						<td><?php echo $order->time_placed; ?></td>
 						<td><?php if (isset($order->from_address)) echo $order->from_address->address1; ?></td>
 						<td><?php if (isset($order->to_address)) echo $order->to_address->address1; ?></td>
