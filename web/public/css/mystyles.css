@@ -34,3 +34,9 @@
 .order-payment-list .order-details  > p {
 	margin-left:50px;
 }
+.user-profile-sidebar {
+	border-radius:0;
+}
+.page-title {
+	font-size:54px;
+}
