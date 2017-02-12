@@ -141,6 +141,28 @@ Class Checkout_model extends CI_Model {
     }
 	
 	/**
+     * @Summary: Find current orders by user id.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 02/07/2017.
+     */
+    public function findCurrentOrdersByUsersId($users_id) {
+        $result = array();
+		$condition = "o.users_id ='" . $users_id . "' and status = '" . ORDERS_STATUS_PENDING . "'";
+        $this->db->select('o.orders_id, o.time_placed, o.last_update, o.status, o.users_id, o.comment, o.type, o.source');
+        $this->db->from('orders as o');
+        $this->db->where($condition);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+			foreach($query->result() as $order) {
+				$this->populateOrderAttribute($order);
+				$result[] = $order;
+			}
+        }
+		return $result;
+    }
+	
+	/**
      * @Summary: Find order by id.
      * @Author:  Fathi Hindi.
 	 * @CreationDate: 02/07/2017.

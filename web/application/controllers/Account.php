@@ -44,10 +44,10 @@ class Account extends CI_Controller {
 	public function history()
 	{
 		$data = array();
-		$result = $this->checkout_model->findOrdersByUsersId(getUserId());
-		if ($result) {
-			$data['orders'] = $result;
-		}
+		
+		$data['orders'] = $this->checkout_model->findOrdersByUsersId(getUserId());
+		$data['current_orders'] = $this->checkout_model->findCurrentOrdersByUsersId(getUserId());
+		
 		$this->load->view('header', $data);
 		$this->load->view('history_page', $data);
 		$this->load->view('footer', $data);
