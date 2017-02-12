@@ -125,7 +125,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="logo" href="index.html">
+                            <a class="logo" href="/">
                                 <img src="/public/images/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
@@ -143,7 +143,7 @@
                                     
 									<?php if (isLoggedIn()) { ?>
 										<li class="top-user-area-avatar">
-											<a href="user-profile.html">
+											<a href="/account">
                                             <img class="origin round" src="/public/images/amaze_40x40.jpg" alt="Image Alternative text" title="AMaze" />Hi, John</a>
 										</li>
 										<li><a href="/logon/logout">Sign Out</a></li>
