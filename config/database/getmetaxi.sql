@@ -159,7 +159,7 @@ CREATE TABLE `orderattr` (
 
 CREATE TABLE `orders` (
   `orders_id` bigint(20) NOT NULL,
-  `status` char(1) NOT NULL,
+  `status` char(1) NOT NULL DEFAULT 'P',
   `time_placed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `users_id` bigint(20) NOT NULL,
