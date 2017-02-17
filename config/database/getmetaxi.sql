@@ -230,8 +230,8 @@ CREATE TABLE `taxitype` (
 --
 
 INSERT INTO `taxitype` (`taxitype_id`, `identifer`, `max_passenger`) VALUES
-(1, '4_PASSENGER', 1),
-(2, '7_PASSENGER', 1);
+(1, '4_PASSENGER', 4),
+(2, '7_PASSENGER', 4);
 
 -- --------------------------------------------------------
 
