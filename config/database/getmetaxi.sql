@@ -39,7 +39,7 @@ CREATE TABLE `address` (
   `nick_name` varchar(128) NOT NULL,
   `city_id` bigint(20) NOT NULL,
   `orgname` varchar(128) NOT NULL,
-  `last_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `last_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `phone` varchar(32),
   `fax` varchar(32),
   `mobile` varchar(32)
@@ -159,9 +159,9 @@ CREATE TABLE `orderattr` (
 
 CREATE TABLE `orders` (
   `orders_id` bigint(20) NOT NULL,
-  `time_placed` timestamp NOT NULL,
-  `last_update` timestamp NOT NULL,
   `status` char(1) NOT NULL,
+  `time_placed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `users_id` bigint(20) NOT NULL,
   `comment` varchar(254) NOT NULL,
   `type` char(3) NOT NULL,
