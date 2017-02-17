@@ -56,6 +56,25 @@ Class Address_model extends CI_Model {
             return null;
         }
     }
+	
+	/**
+     * @Summary: Find address by user id.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 02/17/2017.
+     */
+    public function findAddressByMemberId($member_id) {
+        $condition = "a.member_id='" . $member_id . "'";
+        $this->db->select('a.address_id, a.member_id, a.status, a.is_primary, a.address1, a.address2, a.nick_name, a.orgname, a.phone, a.fax, a.mobile, a.last_create, cd.name as city_name');
+        $this->db->from('address as a');
+		$this->db->join('citydesc as cd' , "a.city_id = cd.city_id");
+        $this->db->where($condition);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>
