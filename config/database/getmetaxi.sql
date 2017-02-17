@@ -40,6 +40,9 @@ CREATE TABLE `address` (
   `city_id` bigint(20) NOT NULL,
   `orgname` varchar(128) NOT NULL,
   `last_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `phone` varchar(32),
+  `fax` varchar(32),
+  `mobile` varchar(32)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

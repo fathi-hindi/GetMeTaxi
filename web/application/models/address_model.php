@@ -44,7 +44,7 @@ Class Address_model extends CI_Model {
      */
     public function findAddressById($address_id) {
         $condition = "a.address_id='" . $address_id . "'";
-        $this->db->select('a.address_id, a.member_id, a.status, a.is_primary, a.address1, a.address2, a.nick_name, a.orgname, a.last_create, cd.name as city_name');
+        $this->db->select('a.address_id, a.member_id, a.status, a.is_primary, a.address1, a.address2, a.nick_name, a.orgname, a.phone, a.fax, a.mobile, a.last_create, cd.name as city_name');
         $this->db->from('address as a');
 		$this->db->join('citydesc as cd' , "a.city_id = cd.city_id");
         $this->db->where($condition);
