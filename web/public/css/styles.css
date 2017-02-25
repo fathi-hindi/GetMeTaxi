@@ -2687,11 +2687,9 @@ aside.sidebar-left {
 }
 .card-thumb {
   position: relative;
-  height: 170px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  height: 200px;
   background: #fafafa;
-  padding: 15px 20px;
+  padding: 10px 15px;
   border: 1px solid #e6e6e6;
   display: block;
 }
@@ -2741,7 +2739,7 @@ aside.sidebar-left {
   color: #5c5c5c;
   font-weight: 400;
   letter-spacing: 2px;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 0;
 }
 .card-thumb .card-thumb-valid {

@@ -14,7 +14,7 @@
 		</li>
 		<li><a href="/account/history"><i class="fa fa-clock-o"></i>Booking History</a>
 		</li>
-		<li><a href="#"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
+		<li><a href="/account/addressBook"><i class="fa fa-credit-card"></i>Address Book</a>
 		</li>
 		<li><a href="#"><i class="fa fa-heart-o"></i>Wishlist</a>
 		</li>

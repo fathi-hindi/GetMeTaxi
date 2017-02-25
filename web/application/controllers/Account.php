@@ -54,6 +54,20 @@ class Account extends CI_Controller {
 	}
 	
 	/**
+	 * Main function for address book view.
+	 */
+	public function addressBook()
+	{
+		$data = array();
+		
+		$data['addresses'] = $this->address_model->findAddressByMemberId(getUserId());
+		
+		$this->load->view('header', $data);
+		$this->load->view('address_page', $data);
+		$this->load->view('footer', $data);
+	}
+	
+	/**
      * @Summary: AJAX Change password.
      * @Author:  Fathi Hindi - 02/06/2017.
      */
