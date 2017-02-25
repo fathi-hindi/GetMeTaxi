@@ -34,4 +34,30 @@ class Address extends CI_Controller {
 		echo json_encode($responseData);
 		exit;
 	}
+	
+	/**
+     * @Summary: AJAX Delete Address.
+     * @Author:  Fathi Hindi - 02/24/2017.
+     */
+    public function ajaxDeleteAddress() {
+		$responseData = array();
+		
+		$address_id = $this->input->get_post('addressId');
+		
+		if ($address_id == null || $address_id == '') {
+			$responseData['status'] = 'failed';
+			$responseData['error'] = 'Invalid address id was recived.';
+		} else {
+			$result = $this->address_model->deleteAddress($address_id);
+			if ($result) {
+				$responseData['status'] = 'sucsess';
+			} else {
+				$responseData['status'] = 'failed';
+				$responseData['error'] = 'Unable to delete this address, pelase try again.';
+			}
+		}
+		
+		echo json_encode($responseData);
+		exit;
+	}
 }

@@ -11,14 +11,14 @@
 		 <div class="col-md-9">
 			<div class="row row-wrap">
 				<?php foreach ($addresses as $address) { ?>
-				<div class="col-md-4">
+				<div class="col-md-4" id="address_<?php echo $address->address_id; ?>" >
 					<div class="card-thumb card-thumb-primary">
 						<ul class="card-thumb-actions">
 							<li>
-								<a class="fa fa-pencil" href="" data-toggle="modal" data-target="#addressModal" onClick="AddressHelperJS.setCurrentAddressId(<?php echo $address->address_id; ?>);AddressHelperJS.populateAddress();" ></a>
+								<a class="fa fa-pencil" href="#" data-toggle="modal" data-target="#addressModal" onClick="AddressHelperJS.setCurrentAddressId(<?php echo $address->address_id; ?>);AddressHelperJS.populateAddress();" ></a>
 							</li>
 							<li>
-								<a class="fa fa-times" href=""></a>
+								<a class="fa fa-times" href="#" onClick="AddressHelperJS.setCurrentAddressId(<?php echo $address->address_id; ?>);AddressHelperJS.ajaxDeleteAddress();" ></a>
 							</li>
 						</ul>
 						<h5 class="card-thumb-number"><?php echo $address->address1 . ' ' . $address->address2; ?></h5>

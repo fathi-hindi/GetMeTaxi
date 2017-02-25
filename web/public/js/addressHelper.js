@@ -36,4 +36,25 @@ AddressHelperJS={
             },
         });
 	},
+	
+	/**
+	 * Delete current selected address.
+	 */
+	ajaxDeleteAddress:function(){
+		if (confirm('Are you sure to delete this address?')) {
+			$.ajax({
+				url: "/address/ajaxDeleteAddress",
+				type: "GET",
+				dataType: "JSON",
+				data: {addressId: AddressHelperJS.addressId},
+				success: function (data) {	
+					if (data.status == 'sucsess') {
+						$('#address_' + AddressHelperJS.addressId).remove();
+					} else {
+						alert('Unable to delete this address. Please try again.');
+					}
+				},
+			});
+		}
+	},
 }

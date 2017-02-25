@@ -75,6 +75,16 @@ Class Address_model extends CI_Model {
             return array();
         }
     }
+	
+	/**
+     * @Summary: Delete address. We only set status to 'T'.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/27/2017.
+     */
+	public function deleteAddress($address_id) {
+		$this->db->where('address_id',$address_id);
+        return $this->db->update('address',array('status' => ADDRESS_STATUS_TEMPORARY));
+	}
 }
 
 ?>
