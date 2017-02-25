@@ -72,7 +72,7 @@ Class Address_model extends CI_Model {
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
-            return null;
+            return array();
         }
     }
 }
