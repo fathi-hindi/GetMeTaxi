@@ -9,6 +9,7 @@
 			</div>
 			<div class="modal-body">
 				<p>* is requiered field.</p>
+				<p class="error-message" id='addressModalErrorPanle'></p>
 				<div class="row">
 					<div class="col-md-6 sign-in">
 						<div class="form-group form-group-icon-left">
@@ -60,7 +61,7 @@
 				<div class="row">
 					<div class="col-md-6 sign-in">
 						<div class="form-group">
-							<button class="btn btn-primary" onClick="">Add / Update</button>
+							<button class="btn btn-primary" onClick="AddressHelperJS.ajaxSaveAddress()">Add / Update</button>
 						</div>
 					</div>
 				</div>

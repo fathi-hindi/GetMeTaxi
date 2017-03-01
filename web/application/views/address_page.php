@@ -15,7 +15,7 @@
 					<div class="card-thumb card-thumb-primary">
 						<ul class="card-thumb-actions">
 							<li>
-								<a class="fa fa-pencil" href="#" data-toggle="modal" data-target="#addressModal" onClick="AddressHelperJS.setCurrentAddressId(<?php echo $address->address_id; ?>);AddressHelperJS.populateAddress();" ></a>
+								<a class="fa fa-pencil" href="#" onClick="AddressHelperJS.showModal(false,<?php echo $address->address_id; ?>);" ></a>
 							</li>
 							<li>
 								<a class="fa fa-times" href="#" onClick="AddressHelperJS.setCurrentAddressId(<?php echo $address->address_id; ?>);AddressHelperJS.ajaxDeleteAddress();" ></a>
@@ -31,7 +31,7 @@
 				</div>
 				<?php } ?>
 				<div class="col-md-4">
-					<a class="card-thumb popup-text" href="#" data-effect="mfp-zoom-out">
+					<a class="card-thumb" href="#" data-effect="mfp-zoom-out" onClick="AddressHelperJS.showModal(true)" >
 						<i class="fa fa-plus card-thumb-new"></i>
 						<p>Add New Address</p>
 					</a>

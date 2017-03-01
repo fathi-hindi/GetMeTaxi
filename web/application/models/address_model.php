@@ -85,6 +85,16 @@ Class Address_model extends CI_Model {
 		$this->db->where('address_id',$address_id);
         return $this->db->update('address',array('status' => ADDRESS_STATUS_TEMPORARY));
 	}
+
+	/**
+     * @Summary: Update address.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 01/27/2017.
+     */
+	public function updateAddress($data) {
+		$this->db->where('address_id',$data['address_id']);
+        return $this->db->update('address', $data);
+	}
 }
 
 ?>
