@@ -4,7 +4,7 @@
 		<div class="bg-mask"></div>
 		<div class="bg-img" style="background-image:url(/public/images/people_on_the_beach_1280x852.jpg);"></div>
 		<div class="bg-holder-content full text-white">
-			<a class="logo-holder" href="index.html">
+			<a class="logo-holder" href="/">
 				<img src="/public/images/logo-white.png" alt="Image Alternative text" title="Image Title" />
 			</a>
 			<div class="full-center">
