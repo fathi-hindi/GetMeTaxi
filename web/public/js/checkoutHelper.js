@@ -24,6 +24,9 @@ CheckoutHelperJS={
 				taxiOfficeSelect.options.length = 0;
 				
 				var objOption = document.createElement("option");
+				objOption.text = 'Select Taxi Office';
+				objOption.value = "";
+				taxiOfficeSelect.options.add(objOption);
 				if (data.length > 0 ) {
 					for (i = 0; i < data.length; i++) { 
 						objOption = document.createElement("option");

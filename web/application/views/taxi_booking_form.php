@@ -26,7 +26,7 @@
 						<i class="fa fa-home input-icon input-icon-highlight"></i>
 						<label>City</label>
 						<select class="form-control" id="taxi_city" onChange="CheckoutHelperJS.taxi_onCityChange(this);">
-							<option>Select City</option>
+							<option value="">Select City</option>
 							<?php foreach ($citys as $city) { ?>
 								<option value="<?php echo $city['city_id'] ?>"><?php echo $city['name'] ?></option>
 							<?php } ?>
@@ -47,7 +47,7 @@
 				<div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-cab input-icon"></i>
 					<label>Taxi Office</label>
 					<select class="form-control" id="taxi_taxiOffice">
-						<option>Select Taxi Office</option>
+						<option value="">Select Taxi Office</option>
 					</select>
 				</div>
 			</div>
