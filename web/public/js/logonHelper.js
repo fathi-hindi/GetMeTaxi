@@ -10,7 +10,7 @@ LogonHelperJS={
 	 * 
 	 */
 	ajaxUserRegistration:function(){
-		document.getElementById('registrationErrorPanle').innerHTML = "";
+		ErrorHelperJS.clearErrorMessage(ErrorHelperJS.REGISTRATION_FORM_ERROR_DIV_ID_PREFIX);
 		
 		var form = document.forms['userRegistration'];
 		var firstName = form.firstName.value;
@@ -29,11 +29,11 @@ LogonHelperJS={
 				if (data.status == 'sucsess') {
 					document.location.href = "/account";
 				} else if(data.status == 'failed') {
-					document.getElementById('registrationErrorPanle').innerHTML = data.error;
+					ErrorHelperJS.setErrorMessage(data.error, ErrorHelperJS.REGISTRATION_FORM_ERROR_DIV_ID_PREFIX);
 				}
             },
 			error: function () {
-				document.getElementById('registrationErrorPanle').innerHTML = "Registration is not avialable now. Please try again.";
+				ErrorHelperJS.setErrorMessage('Registration is not avialable now. Please try again.', ErrorHelperJS.REGISTRATION_FORM_ERROR_DIV_ID_PREFIX);
 			}
         });
 	},
@@ -42,7 +42,7 @@ LogonHelperJS={
 	 * 
 	 */
 	ajaxUserLogon:function(){
-		document.getElementById('logonErrorPanle').innerHTML = "";
+		ErrorHelperJS.clearErrorMessage(ErrorHelperJS.LOGON_FORM_ERROR_DIV_ID_PREFIX);
 		
 		var form = document.forms['userLogon'];
 		var logonId = form.logonId.value;
@@ -58,11 +58,11 @@ LogonHelperJS={
 				if (data.status == 'sucsess') {
 					document.location.href = "/account";
 				} else if(data.status == 'failed') {
-					document.getElementById('logonErrorPanle').innerHTML = data.error;
+					ErrorHelperJS.setErrorMessage(data.error, ErrorHelperJS.LOGON_FORM_ERROR_DIV_ID_PREFIX);
 				}
             },
 			error: function () {
-				document.getElementById('logonErrorPanle').innerHTML = "Unable to sign in now. Please try again.";
+				ErrorHelperJS.setErrorMessage('Unable to sign in now. Please try again.', ErrorHelperJS.LOGON_FORM_ERROR_DIV_ID_PREFIX);
 			}
         });
 	},

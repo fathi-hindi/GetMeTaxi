@@ -54,15 +54,15 @@ CheckoutHelperJS={
 	 */
 	isValidGuestForm:function(){
 		var guestCheckoutForm = document.forms['guestCheckoutForm'];
-		this.clearErrorMessage('guest');
+		ErrorHelperJS.clearErrorMessage(ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 		if (guestCheckoutForm.firstName.value == '') {
-			this.setErrorMessage('Please enter valid first name.', 'guest');
+			ErrorHelperJS.setErrorMessage('Please enter valid first name.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 			return false;
 		} else if (guestCheckoutForm.lastName.value == '') {
-			this.setErrorMessage('Please enter valid last name.', 'guest');
+			ErrorHelperJS.setErrorMessage('Please enter valid last name.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 			return false;
 		} else if (guestCheckoutForm.phone.value == '') {
-			this.setErrorMessage('Please enter valid phone number.', 'guest');
+			ErrorHelperJS.setErrorMessage('Please enter valid phone number.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 			return false;
 		}
 		return true;
@@ -73,7 +73,7 @@ CheckoutHelperJS={
 	 */
 	isValidateOrderForm:function(){
 		if (this.checkoutType == 'Taxi') {
-			this.clearErrorMessage('taxi');
+			ErrorHelperJS.clearErrorMessage(ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 			
 			var fromAddress = document.getElementById('taxi_fromAddress').value;
 			var toAddress = document.getElementById('taxi_toAddress').value;
@@ -84,48 +84,29 @@ CheckoutHelperJS={
 			var time = document.getElementById('taxi_time').value;
 			
 			if (fromAddress == '') {
-				this.setErrorMessage('Please enter valid pick-up address.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please enter valid pick-up address.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			} else if (toAddress == '') {
-				this.setErrorMessage('Please enter valid drop-off address.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please enter valid drop-off address.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			} else if (cityId == '') {
-				this.setErrorMessage('Please select valid city.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please select valid city.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			} else if (taxiTypeId == '') {
-				this.setErrorMessage('Please select valid taxi type.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please select valid taxi type.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			} else if (taxiOfficeId == '') {
-				this.setErrorMessage('Please select valid taxi office.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please select valid taxi office.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			} else if (date == '') {
-				this.setErrorMessage('Please enter valid date.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please enter valid date.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			} else if (time == '') {
-				this.setErrorMessage('Please enter valid time.', 'taxi');
+				ErrorHelperJS.setErrorMessage('Please enter valid time.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			}
 		}
 		return true;
-	},
-	
-	
-	/**
-	 * 
-	 */
-	setErrorMessage:function(error, prefix){
-		if (document.getElementById(prefix + '_error-message')) {
-			document.getElementById(prefix + '_error-message').innerHTML = error;
-		}
-	},
-	
-	/**
-	 * 
-	 */
-	clearErrorMessage:function(prefix){
-		if (document.getElementById(prefix + '_error-message')) {
-			document.getElementById(prefix + '_error-message').innerHTML = "";
-		}
 	},
 	
 	/**
@@ -167,7 +148,7 @@ CheckoutHelperJS={
 					if (data['status'] == 'sucsess') {
 						document.location.href = '/Checkout/confirmation?orderId=' + data['orders_id'];
 					} else {
-						CheckoutHelperJS.setErrorMessage(data['error_message']);
+						ErrorHelperJS.setErrorMessage(data['error_message']);
 					}
 				},
 				error: function () {

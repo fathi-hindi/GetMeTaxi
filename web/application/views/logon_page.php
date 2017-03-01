@@ -20,7 +20,7 @@
 						<div class="col-md-4">
 							<h3 class="mb15">Login</h3>
 							<form name="userLogon" >
-								<p class="error-message" id='logonErrorPanle'></p>
+								<p class="error-message" id='logon_error-panle'></p>
 								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
 									<label>Username or email</label>
 									<input name="logonId" class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" />
@@ -35,7 +35,7 @@
 						<div class="col-md-4">
 							<h3 class="mb15">New To Traveler?</h3>
 							<form name="userRegistration" >
-								<p class="error-message" id='registrationErrorPanle'></p>
+								<p class="error-message" id='registration_error-panle'></p>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
