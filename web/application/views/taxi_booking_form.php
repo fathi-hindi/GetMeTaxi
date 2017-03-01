@@ -69,7 +69,7 @@
 				<div class="col-md-6">
 					<div class="form-group form-group-lg form-group-icon-left">
 						<label>Click below button to finish your booking.</label>
-						<button class="btn btn-primary btn-lg" onClick="CheckoutHelperJS.taxi_processOrder();">PLACE YOUR BOOKING</button>
+						<button class="btn btn-primary btn-lg" onClick="CheckoutHelperJS.startCheckout();">PLACE YOUR BOOKING</button>
 					</div>
 				</div>
 			</div>
