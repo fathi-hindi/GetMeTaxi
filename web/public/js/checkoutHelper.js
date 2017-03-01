@@ -142,7 +142,7 @@ CheckoutHelperJS={
 		}
 		
 		$.ajax({
-				url: "/checkout/ajaxCheckoutAsGuest",
+				url: "/checkout/ajaxProcessOrder",
 				type: "POST",
 				dataType: "JSON",
 				data: param,
@@ -151,11 +151,16 @@ CheckoutHelperJS={
 					if (data['status'] == 'sucsess') {
 						document.location.href = '/Checkout/confirmation?orderId=' + data['orders_id'];
 					} else {
-						ErrorHelperJS.setErrorMessage(data['error_message']);
+						if (CheckoutHelperJS.userType == 'G') {
+							ErrorHelperJS.setErrorMessage(data['error_message'], ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
+						}
 					}
 				},
 				error: function () {
-					// handle error
+					// handle error.
+					if (CheckoutHelperJS.userType == 'G') {
+						ErrorHelperJS.setErrorMessage('Unable to process your order now, Please try again.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
+					}	
 				}
 		});
 	},

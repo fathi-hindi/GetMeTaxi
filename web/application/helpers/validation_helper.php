@@ -18,7 +18,7 @@ function isValidEmail($email) {
  */
 function isValidlogonId($logonId) {
 	$valid = true;
-	if ($logonId == "") {
+	if ($logonId == null || $logonId == "") {
 		$valid = false;
 	}
 	return $valid;
@@ -30,7 +30,7 @@ function isValidlogonId($logonId) {
  */
 function isValidFirstName($first_name) {
 	$valid = true;
-	if ($first_name == "") {
+	if ($first_name == null || $first_name == "") {
 		$valid = false;
 	}
 	return $valid;
@@ -42,7 +42,7 @@ function isValidFirstName($first_name) {
  */
 function isValidLastName($last_name) {
 	$valid = true;
-	if ($last_name == "") {
+	if ($last_name == null || $last_name == "") {
 		$valid = false;
 	}
 	return $valid;
@@ -54,7 +54,7 @@ function isValidLastName($last_name) {
  */
 function isValidPhone($phone) {
 	$valid = true;
-	if ($phone == "") {
+	if ($phone == null || $phone == "") {
 		$valid = false;
 	}
 	return $valid;
@@ -66,7 +66,7 @@ function isValidPhone($phone) {
  */
 function isValidPassword($password) {
 	$valid = true;
-	if ($password == "") {
+	if ($password == null || $password == "") {
 		$valid = false;
 	}
 	return $valid;

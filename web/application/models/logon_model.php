@@ -52,6 +52,38 @@ Class Logon_model extends CI_Model {
 	}
 	
 	/**
+     * @Summary: Create new guest user.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 02/28/2017.
+     */
+	public function createNewGuestUser($firstName, $lastName, $phone, $email) {
+		$result = $this->insertMember(array("type" => MEMBER_TYPE_USER));
+		if ($result[0] == 1) {
+			$member_id = $result[1];
+			
+			$users_data = array (
+				'users_id' => $member_id,
+				'user_type' => USER_TYPE_GUEST,
+				'first_name' => trim($firstName),
+				'last_name' => trim($lastName),
+				'phone' => trim($phone)
+			);
+			
+			$result = $this->insertUsers($users_data);
+			
+			if ($result) {
+				return $member_id;
+			} else {
+				// TODO: Handle error occurred in database.
+				return 0;
+			}
+		} else {
+			// TODO: Handle error occurred in database.
+			return 0;
+		}	
+	}
+	
+	/**
      * @Summary: Insert new entry in 'users' table.
      * @Author:  Fathi Hindi.
 	 * @CreationDate: 01/10/2017.

@@ -40,3 +40,17 @@ function isLoggedIn() {
 	}
 	return $isLoggedIn;
 }
+
+/**
+ * @Summary: Check if the is genetic user.
+ * @Author:  Fathi Hindi - 02/28/2017.
+ */
+function isGenericUser() {
+    $isGenericUser = true;
+	$CI = & get_instance();
+    $user_id = $CI->session->userdata(SESSION_USER_ID_KEY);
+	if (isset($user_id) && $user_id > 0) {
+		$isGenericUser = false;
+	}
+	return $isGenericUser;
+}
