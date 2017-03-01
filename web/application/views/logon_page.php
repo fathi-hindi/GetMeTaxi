@@ -50,7 +50,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
+								<div class="form-group form-group-ghost form-group-icon-left"><i class="fa fa-phone input-icon input-icon-show"></i>
 									<label>Phone</label>
 									<input class="form-control" name="phone" placeholder="e.g. +970597262705" type="text" />
 								</div>
