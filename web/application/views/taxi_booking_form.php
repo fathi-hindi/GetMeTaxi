@@ -63,7 +63,7 @@
 				<div class="col-md-3">
 					<div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-clock-o input-icon input-icon-highlight"></i>
 						<label>Pick-up Time</label>
-						<input class="time-pick form-control" id="taxi_time" value="12:00 AM" type="text" />
+						<input class="time-pick form-control" id="taxi_time" type="text" />
 					</div>
 				</div>
 				<div class="col-md-6">
