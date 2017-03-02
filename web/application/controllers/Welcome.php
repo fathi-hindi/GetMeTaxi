@@ -36,6 +36,8 @@ class Welcome extends CI_Controller {
 		
 		$data['taxi_types'] = $taxi_types;
 		
+		$data['display_welcome_modal'] = true;
+		
 		$this->load->view('header', $data);
 		$this->load->view('home_page', $data);
 		$this->load->view('footer', $data);

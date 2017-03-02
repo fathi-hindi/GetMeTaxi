@@ -52,3 +52,19 @@
 	border:1px solid #e5e5e5;
 	display:none;
 }
+
+#welcomeModal .modal-dialog {
+	position:fixed;
+	top:25%;
+	left: 30%;
+    width: 40%;
+}
+#welcomeModal  .modal-content {
+	border-radius:0;
+	height:350px;
+	background-image:url("/public/images/el_inevitable_paso_del_tiempo_2048x2048.png");
+	background-size: cover;
+}
+#welcomeModal  .modal-content .modal-header {
+	border:none;
+}

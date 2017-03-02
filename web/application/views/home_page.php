@@ -453,4 +453,4 @@
 		</div>
 	</div>
 </div>
-<?php include('logon_at_checkout_modal.php'); ?>
+<?php include('logon_at_checkout_modal.php'); ?><?php if (isset($display_welcome_modal) && $display_welcome_modal == true) include('welcome_modal.php'); ?>
