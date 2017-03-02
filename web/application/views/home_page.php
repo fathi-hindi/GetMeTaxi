@@ -329,41 +329,40 @@
 </div>
 <!-- END TOP AREA  -->
 
-<div class="gap"></div>
-
-
 <div class="container">
+	<div class="gap gap-small"></div>
 	<div class="row row-wrap" data-gutter="60">
-		<div class="col-md-4">
-			<div class="thumb">
-				<header class="thumb-header"><i class="fa fa-dollar box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
-				</header>
-				<div class="thumb-caption">
-					<h5 class="thumb-title"><a class="text-darken" href="#">Best Price Guarantee</a></h5>
-					<p class="thumb-desc">Eu lectus non vivamus ornare lacinia elementum faucibus natoque parturient ullamcorper placerat</p>
+		<h2>Trackig your order</h2>
+		<form>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="form-group form-group-lg form-group-icon-left">
+						<i class="fa fa-calendar  input-icon"></i>
+						<label>Order Number #</label>
+						<input class="typeahead form-control" placeholder="Order #" type="text" />
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group form-group-lg form-group-icon-left">
+						<i class="fa fa-user input-icon input-icon-highlight"></i>
+						<label>First Name</label>
+						<input class="form-control" name="firstName" placeholder="First Name" type="text" />
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group form-group-lg form-group-icon-left">
+						<i class="fa fa-user input-icon input-icon-highlight"></i>
+						<label>Last Name</label>
+						<input class="form-control" name="lastName" placeholder="Last Name" type="text" />
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group form-group-lg form-group-icon-left">
+						<button class="btn btn-primary btn-lg" type="submit">Search for Order</button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="thumb">
-				<header class="thumb-header"><i class="fa fa-lock box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
-				</header>
-				<div class="thumb-caption">
-					<h5 class="thumb-title"><a class="text-darken" href="#">Trust & Safety</a></h5>
-					<p class="thumb-desc">Imperdiet nisi potenti fermentum vehicula eleifend elementum varius netus adipiscing neque quisque</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="thumb">
-				<header class="thumb-header"><i class="fa fa-thumbs-o-up box-icon-md round box-icon-black animate-icon-top-to-bottom"></i>
-				</header>
-				<div class="thumb-caption">
-					<h5 class="thumb-title"><a class="text-darken" href="#">Best Travel Agent</a></h5>
-					<p class="thumb-desc">Curae urna fusce massa a lacus nisl id velit magnis venenatis consequat</p>
-				</div>
-			</div>
-		</div>
+		</form>					
 	</div>
 	<div class="gap gap-small"></div>
 </div>
