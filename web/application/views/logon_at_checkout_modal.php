@@ -27,7 +27,7 @@
 					</div>
 					<form name="guestCheckoutForm" action="#" >
 						<div class="col-md-6 guest">
-							<p>Don't have account, continue as guest or <a href="#">create account</a>.</p>
+							<p>Don't have account, continue as guest or <a href="/logon">create account</a>.</p>
 							<p id="guest_error-panle" class="error-message"></p>
 							<div class="row">
 								<div class="col-md-6">
