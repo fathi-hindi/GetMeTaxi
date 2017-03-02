@@ -93,8 +93,10 @@
 		<script src="/public/js/logonHelper.js"></script>
 		<script src="/public/js/addressHelper.js"></script>
 		<script src="/public/js/errorHelper.js"></script>
+		<script src="/public/js/loadingHelper.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     </div>
+	<div id="loadingIcon" class="loading-icon" ><img src="/public/images/loading_rwd.gif"></div>
 </body>
 
 </html>
