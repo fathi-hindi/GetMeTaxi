@@ -28,14 +28,23 @@ function getUserId() {
 }
 
 /**
+ * @Summary: Get user type.
+ * @Author:  Fathi Hindi - 03/02/2017.
+ */
+function getUserType() {
+    // Get current CodeIgniter instance
+    $CI = & get_instance();
+    $user_type= $CI->session->userdata(SESSION_USER_TYPE_KEY);
+	return $user_type;
+}
+
+/**
  * @Summary: Check if the current user is logged in or not.
  * @Author:  Fathi Hindi - 02/07/2017.
  */
 function isLoggedIn() {
     $isLoggedIn = false;
-	$CI = & get_instance();
-    $user_id = $CI->session->userdata(SESSION_USER_ID_KEY);
-	if (isset($user_id) && $user_id > 0) {
+	if (getUserId() != null && getUserId() > 0 && getUserType() != null && getUserType() != USER_TYPE_GUEST) {
 		$isLoggedIn = true;
 	}
 	return $isLoggedIn;
@@ -46,11 +55,10 @@ function isLoggedIn() {
  * @Author:  Fathi Hindi - 02/28/2017.
  */
 function isGenericUser() {
-    $isGenericUser = true;
-	$CI = & get_instance();
-    $user_id = $CI->session->userdata(SESSION_USER_ID_KEY);
-	if (isset($user_id) && $user_id > 0) {
-		$isGenericUser = false;
+    $isGenericUser = false;
+	
+	if (getUserId() == null || getUserId() <= 0) {
+		$isGenericUser = true;
 	}
 	return $isGenericUser;
 }
