@@ -96,6 +96,9 @@ define('ACTIVETY_BOOKING_ENABLE', true);
 define('SESSION_LANGUAGE_ID_KEY', 'language_id');
 define('SESSION_USER_ID_KEY', 'users_id');
 define('SESSION_USER_TYPE_KEY', 'users_type');
+define('SESSION_USER_FIRST_NAME_KEY', 'users_first_name');
+define('SESSION_USER_LAST_NAME_KEY', 'users_last_name');
+define('SESSION_USER_LOGON_ID_KEY', 'users_logon_id');
 
 // Default value.
 define('LANGUAGE_ID_DEFAULT_VALUE', '1');

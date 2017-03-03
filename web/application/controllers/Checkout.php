@@ -106,7 +106,8 @@ class Checkout extends CI_Controller {
 			} 
 			// TODO: create new guest and session
 			$users_id = $this->logon_model->createNewGuestUser($firstName, $lastName, $phone, $email);
-			$this->session->set_userdata(SESSION_USER_ID_KEY, $users_id);         
+			$this->session->set_userdata(SESSION_USER_ID_KEY, $users_id);
+			$this->session->set_userdata(SESSION_USER_TYPE_KEY, USER_TYPE_GUEST); 			
 		}
 		
 		$checkoutType = $this->input->get_post('checkoutType');

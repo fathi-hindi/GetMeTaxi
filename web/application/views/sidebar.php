@@ -2,8 +2,8 @@
 <aside class="user-profile-sidebar">
 	<div class="user-profile-avatar text-center">
 		<img src="/public/images/amaze_300x300.jpg" alt="Image Alternative text" title="AMaze" />
-		<h5>John Doe</h5>
-		<p>Member Since May 2012</p>
+		<h5><?php echo getUserFirstName() . ' ' . getUserLastName();?></h5>
+		<p><?php echo getUserLogonId(); ?></p>
 	</div>
 	<ul class="list user-profile-nav">
 		<li><a href="/account"><i class="fa fa-user"></i>Overview</a>

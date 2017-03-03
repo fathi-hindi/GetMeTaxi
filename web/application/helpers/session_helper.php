@@ -62,3 +62,36 @@ function isGenericUser() {
 	}
 	return $isGenericUser;
 }
+
+/**
+ * @Summary: Get user first name from session.
+ * @Author:  Fathi Hindi - 02/28/2017.
+ */
+function getUserFirstName() {
+    // Get current CodeIgniter instance
+    $CI = & get_instance();
+    $user_first_name= $CI->session->userdata(SESSION_USER_FIRST_NAME_KEY);
+	return $user_first_name;
+}
+
+/**
+ * @Summary: Get user last name from session.
+ * @Author:  Fathi Hindi - 02/28/2017.
+ */
+function getUserLastName() {
+    // Get current CodeIgniter instance
+    $CI = & get_instance();
+    $user_last_name= $CI->session->userdata(SESSION_USER_LAST_NAME_KEY);
+	return $user_last_name;
+}
+
+/**
+ * @Summary: Get user logon id from session.
+ * @Author:  Fathi Hindi - 02/28/2017.
+ */
+function getUserLogonId() {
+    // Get current CodeIgniter instance
+    $CI = & get_instance();
+    $user_logon_id= $CI->session->userdata(SESSION_USER_LOGON_ID_KEY);
+	return $user_logon_id;
+}
