@@ -68,3 +68,9 @@
 #welcomeModal  .modal-content .modal-header {
 	border:none;
 }
+.booking-item-payment .user-profile-avatar img {
+    max-width: 120px;
+    margin-bottom: 15px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}

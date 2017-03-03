@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php if (isset($order) && $order != false) { ?>	
-<h5>Order #: <?php echo $order->orders_id; ?></h5>
+<h5>Order #: <?php echo $order->orders_id; ?> <a class="pull-right" href="#">Tracking your order on the map</a></h5>
+
 <ul class="order-payment-list list mb30">
 	<li>
 		<div class="row">
@@ -28,8 +29,24 @@
 					Pick-up Time:
 				</h5>
 				<p><?php if (isset($order->time)) echo $order->time; ?></p>
+				<hr/>
+				<h5>
+					<i class="fa fa-clock-o"></i>
+					Order Status:
+				</h5>
+				<p><?php if (isset($order->status)) echo $order->status; ?></p>
 			</div>
 			<div class="col-md-5">
+				<div class="booking-item-payment">
+					<header class="clearfix">
+						<div class="user-profile-avatar text-center">
+							<img src="/public/images/amaze_300x300.jpg" title="Fathi Hindi">
+							<h5>Fathi Hindi</h5>
+							<p>+972597262705</p>
+						</div>
+					</header>
+				</div>
+				<div class="gap gap-small"></div>
 				<div class="booking-item-payment">
 					<header class="clearfix">
 						<a class="booking-item-payment-img" href="#">
