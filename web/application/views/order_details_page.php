@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<?php if (isset($order) && $order != false) { include('order_details_section.php'); }?>	
+			<?php include('order_details_section.php'); ?>	
 		</div>
 	</div>
 	<div class="gap"></div>

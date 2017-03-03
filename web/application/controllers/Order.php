@@ -7,6 +7,7 @@ class Order extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('checkout_model');
+		$this->load->model('logon_model');
 	}
 		
 	/**
