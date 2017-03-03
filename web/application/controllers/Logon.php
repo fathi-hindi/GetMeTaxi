@@ -51,7 +51,7 @@ class Logon extends CI_Controller {
 			} else {
 				$users_id = $this->logon_model->createNewUser(USER_TYPE_REGISTERED, $frist_name, $last_name, $phone, USER_STATUS_ENABLED, $email, $password);
 				if ($users_id > 0) {
-					$this->createNewSession($users_id);
+					$this->createNewSession($users_id, USER_TYPE_REGISTERED);
 					$response['status'] = 'sucsess';
 				} else {
 					// data base error.
@@ -87,7 +87,7 @@ class Logon extends CI_Controller {
 				$result = $this->logon_model->findUserByLogonId($logon_id);
 				if ($result) {
 					$response['status'] = 'sucsess';
-					$this->createNewSession($result->users_id);
+					$this->createNewSession($result->users_id, $result->user_type);
 				} else {
 					$response['status'] = 'failed';
 					$response['error'] = 'Invalid logon Id.';
@@ -160,8 +160,9 @@ class Logon extends CI_Controller {
 	/**
 	 * Create new session when the customer is logon or registor.
 	 */
-	private function createNewSession($users_id) {
-        $this->session->set_userdata(SESSION_USER_ID_KEY, $users_id);         
+	private function createNewSession($users_id, $users_type) {
+        $this->session->set_userdata(SESSION_USER_ID_KEY, $users_id); 
+        $this->session->set_userdata(SESSION_USER_TYPE_KEY, $users_type);         
     }
 	
 	/**
