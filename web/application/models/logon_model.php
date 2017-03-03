@@ -183,8 +183,8 @@ Class Logon_model extends CI_Model {
     public function findUserByUsersId($users_id) {
         $condition = "u.users_id ='" . $users_id . "'";
         $this->db->select('u.users_id, u.user_type, u.date_of_birth, u.first_name, u.last_name, u.middle_name, u.phone, u.fax, u.mobile, u.photo, ur.status, ur.logon_id, ur.password, ur.password_retries, ur.password_expired, ur.salt');
-        $this->db->from('userreg as ur');
-		$this->db->join('users as u' , "u.users_id = ur.users_id");
+        $this->db->from('users as u');
+		$this->db->join('userreg as ur' , "u.users_id = ur.users_id", 'left');
         $this->db->where($condition);
         $this->db->limit(1);
         $query = $this->db->get();
