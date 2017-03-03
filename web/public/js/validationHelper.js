@@ -169,4 +169,30 @@ ValidationHelperJS=
 		}
 		return true;
 	},
+	
+	/**
+	 * This function validate first name value.
+	 */
+	validate_firstName:function(value)
+	{
+		if(!this.validate_req(value)) 
+		{
+			return false;
+		}
+			
+		return true;
+	},
+	
+	/**
+	 * This function validate last name value.
+	 */
+	validate_lastName:function(value)
+	{
+		if(!this.validate_req(value)) 
+		{
+			return false;
+		}
+			
+		return true;
+	},
 }

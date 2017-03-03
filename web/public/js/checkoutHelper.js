@@ -58,14 +58,17 @@ CheckoutHelperJS={
 	isValidGuestForm:function(){
 		var guestCheckoutForm = document.forms['guestCheckoutForm'];
 		ErrorHelperJS.clearErrorMessage(ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
-		if (guestCheckoutForm.firstName.value == '') {
+		if (!ValidationHelperJS.validate_firstName(guestCheckoutForm.firstName.value)) {
 			ErrorHelperJS.setErrorMessage('Please enter valid first name.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 			return false;
-		} else if (guestCheckoutForm.lastName.value == '') {
+		} else if (!ValidationHelperJS.validate_lastName(guestCheckoutForm.lastName.value)) {
 			ErrorHelperJS.setErrorMessage('Please enter valid last name.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 			return false;
-		} else if (guestCheckoutForm.phone.value == '') {
+		} else if (!ValidationHelperJS.validate_phone(guestCheckoutForm.phone.value)) {
 			ErrorHelperJS.setErrorMessage('Please enter valid phone number.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
+			return false;
+		} else if (!ValidationHelperJS.validate_email(guestCheckoutForm.email.value, false)) {
+			ErrorHelperJS.setErrorMessage('Please enter valid email address.', ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);
 			return false;
 		}
 		return true;
@@ -101,10 +104,10 @@ CheckoutHelperJS={
 			} else if (taxiOfficeId == '') {
 				ErrorHelperJS.setErrorMessage('Please select valid taxi office.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
-			} else if (date == '') {
+			} else if (!ValidationHelperJS.validate_date(date)) {
 				ErrorHelperJS.setErrorMessage('Please enter valid date.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
-			} else if (time == '') {
+			} else if (!ValidationHelperJS.validate_time(time)) {
 				ErrorHelperJS.setErrorMessage('Please enter valid time.', ErrorHelperJS.TAXI_FORM_ERROR_DIV_ID_PREFIX);
 				return false;
 			}
