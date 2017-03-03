@@ -139,6 +139,8 @@ ValidationHelperJS=
 		if (isReq && !this.validate_req(value))
 		{
 			return false;
+		} else if (!isReq && value == '') {
+			return true;
 		}			
 		
 		// This restricts legit email addresses (e.g., x..y@z.com, x.@y.com, etc.)
