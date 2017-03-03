@@ -329,43 +329,8 @@
 </div>
 <!-- END TOP AREA  -->
 
-<div class="container">
-	<div class="gap gap-small"></div>
-	<div class="row row-wrap" data-gutter="60">
-		<h2>Trackig your order</h2>
-		<form>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
-						<i class="fa fa-calendar  input-icon"></i>
-						<label>Order Number #</label>
-						<input class="typeahead form-control" placeholder="Order #" type="text" />
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
-						<i class="fa fa-user input-icon input-icon-highlight"></i>
-						<label>First Name</label>
-						<input class="form-control" name="firstName" placeholder="First Name" type="text" />
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
-						<i class="fa fa-user input-icon input-icon-highlight"></i>
-						<label>Last Name</label>
-						<input class="form-control" name="lastName" placeholder="Last Name" type="text" />
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
-						<button class="btn btn-primary btn-lg" type="submit">Search for Order</button>
-					</div>
-				</div>
-			</div>
-		</form>					
-	</div>
-	<div class="gap gap-small"></div>
-</div>
+<?php include('tracking_order_form.php') ?>
+
 <div class="bg-holder">
 	<div class="bg-mask"></div>
 	<div class="bg-parallax" style="background-image:url(/public/images/hotel_the_cliff_bay_spa_suite_2048x1310.jpg);"></div>

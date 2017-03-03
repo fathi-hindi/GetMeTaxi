@@ -16,6 +16,7 @@ ErrorHelperJS={
 	GUEST_FORM_ERROR_DIV_ID_PREFIX: 'guest_',
 	LOGON_FORM_ERROR_DIV_ID_PREFIX: 'logon_',
 	REGISTRATION_FORM_ERROR_DIV_ID_PREFIX: 'registration_',
+	TRACKING_FORM_ERROR_DIV_ID_PREFIX: 'tracking_',
 	
 	/**
 	 * 

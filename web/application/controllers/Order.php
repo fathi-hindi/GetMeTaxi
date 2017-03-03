@@ -38,7 +38,7 @@ class Order extends CI_Controller {
 					$last_name = $this->input->get('lastName');
 					if (isset($first_name) && isset($last_name)) {
 						$order_user = $this->logon_model->findUserByUsersId($order_users_id);
-						if (($order_user->first_name != $first_name) || ($order_user->last_name != $last_name)) {
+						if (($order_user == false) || ($order_user->first_name != $first_name) || ($order_user->last_name != $last_name)) {
 							$order = false;
 							$error_message = 'You are not authorize to view this order.';
 						}
@@ -57,7 +57,9 @@ class Order extends CI_Controller {
 		}
 		
 		$data['order'] = $order;
-		$data['order_user'] = $order_user;
+		if (isset($order_user)) {
+			$data['order_user'] = $order_user;
+		}
 		$data['error_message'] = $error_message;
 		
 		$this->load->view('header', $data);

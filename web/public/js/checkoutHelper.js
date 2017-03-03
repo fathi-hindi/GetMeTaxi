@@ -167,4 +167,25 @@ CheckoutHelperJS={
 				}
 		});
 	},
+	
+	/**
+	 * Validate tracking order form before submit.
+	 */
+	validateTrackingOrderForm:function(form){
+		ErrorHelperJS.clearErrorMessage(ErrorHelperJS.TRACKING_FORM_ERROR_DIV_ID_PREFIX);
+		if (!ValidationHelperJS.validate_req(form.orderId.value) || !ValidationHelperJS.validate_numeric(form.orderId.value))
+		{
+			ErrorHelperJS.setErrorMessage('Please enter valid order number.', ErrorHelperJS.TRACKING_FORM_ERROR_DIV_ID_PREFIX);
+			return;
+		} else if (!ValidationHelperJS.validate_req(form.firstName.value))
+		{
+			ErrorHelperJS.setErrorMessage('Please enter valid first name.', ErrorHelperJS.TRACKING_FORM_ERROR_DIV_ID_PREFIX);
+			return;
+		} else if (!ValidationHelperJS.validate_req(form.lastName.value))
+		{	
+			ErrorHelperJS.setErrorMessage('Please enter valid last name.', ErrorHelperJS.TRACKING_FORM_ERROR_DIV_ID_PREFIX);
+			return;
+		}
+		form.submit();
+	},
 }
