@@ -46,7 +46,10 @@ class Order extends CI_Controller {
 						$order = false;
 						$error_message = 'You are not authorize to view this order.';
 					}
-				} 
+				} else {
+					// just populate the user infor.
+					$order_user = $this->logon_model->findUserByUsersId(getUserId());
+				}
 			} else {
 				$order = false;
 				$error_message = 'Invalid order number.';
@@ -54,6 +57,7 @@ class Order extends CI_Controller {
 		}
 		
 		$data['order'] = $order;
+		$data['order_user'] = $order_user;
 		$data['error_message'] = $error_message;
 		
 		$this->load->view('header', $data);

@@ -41,8 +41,8 @@
 					<header class="clearfix">
 						<div class="user-profile-avatar text-center">
 							<img src="/public/images/amaze_300x300.jpg" title="Fathi Hindi">
-							<h5>Fathi Hindi</h5>
-							<p>+972597262705</p>
+							<h5><?php echo $order_user->first_name . ' ' . $order_user->last_name; ?></h5>
+							<p><?php echo $order_user->phone; ?></p>
 						</div>
 					</header>
 				</div>
