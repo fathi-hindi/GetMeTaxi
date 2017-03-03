@@ -30,6 +30,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="form-group form-group-lg form-group-icon-left">
+						<button class="btn btn-primary btn-lg" type="button" onClick="CheckoutHelperJS.validateTrackingOrderForm(document.trackingOrderForm);">Find Your Order</button>
 					</div>
 				</div>
 			</div>
