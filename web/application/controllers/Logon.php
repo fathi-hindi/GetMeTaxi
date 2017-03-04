@@ -51,7 +51,7 @@ class Logon extends CI_Controller {
 			} else {
 				$users_id = $this->logon_model->createNewUser(USER_TYPE_REGISTERED, $frist_name, $last_name, $phone, USER_STATUS_ENABLED, $email, $password);
 				if ($users_id > 0) {
-					$this->createNewSession($users_id, USER_TYPE_REGISTERED, $frist_name, $last_name, $email);
+					$this->createNewSession($users_id, USER_TYPE_REGISTERED, $frist_name, $last_name, $email, '');
 					$response['status'] = 'sucsess';
 				} else {
 					// data base error.
@@ -87,7 +87,7 @@ class Logon extends CI_Controller {
 				$result = $this->logon_model->findUserByLogonId($logon_id);
 				if ($result) {
 					$response['status'] = 'sucsess';
-					$this->createNewSession($result->users_id, $result->user_type, $result->first_name, $result->last_name, $result->logon_id);
+					$this->createNewSession($result->users_id, $result->user_type, $result->first_name, $result->last_name, $result->logon_id, $result->photo);
 				} else {
 					$response['status'] = 'failed';
 					$response['error'] = 'Invalid logon Id.';
@@ -160,12 +160,13 @@ class Logon extends CI_Controller {
 	/**
 	 * Create new session when the customer is logon or registor.
 	 */
-	private function createNewSession($users_id, $users_type, $first_name, $last_name, $logon_id) {
-        $this->session->set_userdata(SESSION_USER_ID_KEY, $users_id); 
-        $this->session->set_userdata(SESSION_USER_TYPE_KEY, $users_type);         
-        $this->session->set_userdata(SESSION_USER_FIRST_NAME_KEY, $first_name);         
-        $this->session->set_userdata(SESSION_USER_LAST_NAME_KEY, $last_name);         
-        $this->session->set_userdata(SESSION_USER_LOGON_ID_KEY, $logon_id);         
+	private function createNewSession($users_id, $users_type, $first_name, $last_name, $logon_id, $photo) {
+        $this->session->set_userdata(SESSION_USER_ID_KEY, $users_id);
+        $this->session->set_userdata(SESSION_USER_TYPE_KEY, $users_type);
+        $this->session->set_userdata(SESSION_USER_FIRST_NAME_KEY, $first_name);
+        $this->session->set_userdata(SESSION_USER_LAST_NAME_KEY, $last_name);
+        $this->session->set_userdata(SESSION_USER_LOGON_ID_KEY, $logon_id);   
+        $this->session->set_userdata(SESSION_USER_PHOTO_KEY, $photo);   
     }
 	
 	/**

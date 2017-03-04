@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <aside class="user-profile-sidebar">
 	<div class="user-profile-avatar text-center">
-		<img src="/public/images/amaze_300x300.jpg" alt="Image Alternative text" title="AMaze" />
+		<img src="<?php echo getUserPhoto(); ?>" alt="Image Alternative text" title="AMaze" />
 		<h5><?php echo getUserFirstName() . ' ' . getUserLastName();?></h5>
 		<p><?php echo getUserLogonId(); ?></p>
 	</div>

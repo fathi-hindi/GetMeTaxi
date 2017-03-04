@@ -99,6 +99,7 @@ define('SESSION_USER_TYPE_KEY', 'users_type');
 define('SESSION_USER_FIRST_NAME_KEY', 'users_first_name');
 define('SESSION_USER_LAST_NAME_KEY', 'users_last_name');
 define('SESSION_USER_LOGON_ID_KEY', 'users_logon_id');
+define('SESSION_USER_PHOTO_KEY', 'users_photo');
 
 // Default value.
 define('LANGUAGE_ID_DEFAULT_VALUE', '1');
@@ -135,3 +136,7 @@ define('ORDERS_STATUS_REJECTED', 'R');
 
 // CHECKOUT TYPE
 define('CHECKOUT_TYPE_TAXI', 'Taxi');
+
+//OTHERS
+define('USER_PHOTO_FOLDER_PATH', '/public/images/users/');
+define('USER_PHOTO_DEFAULT_IMG', 'default.png');

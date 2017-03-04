@@ -144,7 +144,7 @@
 									<?php if (isLoggedIn()) { ?>
 										<li class="top-user-area-avatar">
 											<a href="/account">
-                                            <img class="origin round" src="/public/images/amaze_40x40.jpg" alt="Image Alternative text" title="AMaze" />Hi, <?php echo getUserFirstName();?></a>
+                                            <img class="origin round" src="<?php echo getUserPhoto();?>" alt="Image Alternative text" title="AMaze" />Hi, <?php echo getUserFirstName();?></a>
 										</li>
 										<li><a href="/logon/logout">Sign Out</a></li>
 									<?php } else { ?>

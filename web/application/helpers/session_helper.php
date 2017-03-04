@@ -95,3 +95,19 @@ function getUserLogonId() {
     $user_logon_id= $CI->session->userdata(SESSION_USER_LOGON_ID_KEY);
 	return $user_logon_id;
 }
+
+/**
+ * @Summary: Get user photo.
+ * @Author:  Fathi Hindi - 02/28/2017.
+ */
+function getUserPhoto() {
+    // Get current CodeIgniter instance
+    $CI = & get_instance();
+    $user_photo= $CI->session->userdata(SESSION_USER_PHOTO_KEY);
+	if (isset($user_photo) && $user_photo != '') {
+		$user_photo = USER_PHOTO_FOLDER_PATH . $user_photo;
+	} else {
+		$user_photo = USER_PHOTO_FOLDER_PATH . USER_PHOTO_DEFAULT_IMG;
+	}	
+	return $user_photo;
+}

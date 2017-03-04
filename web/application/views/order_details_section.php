@@ -37,16 +37,18 @@
 				<p><?php if (isset($order->status)) echo $order->status; ?></p>
 			</div>
 			<div class="col-md-5">
+				<?php if (isset($order_user)) { ?>
 				<div class="booking-item-payment">
 					<header class="clearfix">
 						<div class="user-profile-avatar text-center">
-							<img src="/public/images/amaze_300x300.jpg" title="Fathi Hindi">
+							<img src="<?php echo USER_PHOTO_FOLDER_PATH . ($order_user->photo != '' ? $order_user->photo : USER_PHOTO_DEFAULT_IMG ); ?>" title="Fathi Hindi">
 							<h5><?php echo $order_user->first_name . ' ' . $order_user->last_name; ?></h5>
 							<p><?php echo $order_user->phone; ?></p>
 						</div>
 					</header>
 				</div>
 				<div class="gap gap-small"></div>
+				<?php } ?>
 				<div class="booking-item-payment">
 					<header class="clearfix">
 						<a class="booking-item-payment-img" href="#">
