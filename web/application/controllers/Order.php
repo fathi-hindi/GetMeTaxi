@@ -66,4 +66,16 @@ class Order extends CI_Controller {
 		$this->load->view('order_details_page', $data);
 		$this->load->view('footer', $data);
 	}
+	
+	/**
+	 * 
+	 */
+	public function map()
+	{
+		$data = array();
+		
+		$this->load->view('header', $data);
+		$this->load->view('order_map_page', $data);
+		$this->load->view('footer', $data);
+	}
 }

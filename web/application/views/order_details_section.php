@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php if (isset($order) && $order != false) { ?>	
-<h5>Order #: <?php echo $order->orders_id; ?> <a class="pull-right" href="#">Tracking your order on the map</a></h5>
+<h5>Order #: <?php echo $order->orders_id; ?> <a class="pull-right" href="/order/map">Tracking your order on the map</a></h5>
 
 <ul class="order-payment-list list mb30">
 	<li>
