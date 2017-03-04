@@ -20,7 +20,8 @@ Class Logon_model extends CI_Model {
 				'user_type' => $userType,
 				'first_name' => trim($firstName),
 				'last_name' => trim($lastName),
-				'phone' => trim($phone)
+				'phone' => trim($phone),
+				'email' => trim($logonId)
 			);
 			
 			$result = $this->insertUsers($users_data);
@@ -66,7 +67,8 @@ Class Logon_model extends CI_Model {
 				'user_type' => USER_TYPE_GUEST,
 				'first_name' => trim($firstName),
 				'last_name' => trim($lastName),
-				'phone' => trim($phone)
+				'phone' => trim($phone),
+				'email' => trim($email)
 			);
 			
 			$result = $this->insertUsers($users_data);
@@ -161,7 +163,7 @@ Class Logon_model extends CI_Model {
      */
     public function findUserByLogonId($logon_id) {
         $condition = "ur.logon_id ='" . $logon_id . "'";
-        $this->db->select('u.users_id, u.user_type, u.date_of_birth, u.first_name, u.last_name, u.middle_name, u.phone, u.fax, u.mobile, u.photo, ur.status, ur.logon_id, ur.password, ur.password_retries, ur.password_expired, ur.salt');
+        $this->db->select('u.users_id, u.user_type, u.date_of_birth, u.first_name, u.last_name, u.middle_name, u.phone, u.fax, u.mobile, u.photo, u.email, ur.status, ur.logon_id, ur.password, ur.password_retries, ur.password_expired, ur.salt');
         $this->db->from('userreg as ur');
 		$this->db->join('users as u' , "u.users_id = ur.users_id");
         $this->db->where($condition);
@@ -182,7 +184,7 @@ Class Logon_model extends CI_Model {
      */
     public function findUserByUsersId($users_id) {
         $condition = "u.users_id ='" . $users_id . "'";
-        $this->db->select('u.users_id, u.user_type, u.date_of_birth, u.first_name, u.last_name, u.middle_name, u.phone, u.fax, u.mobile, u.photo, ur.status, ur.logon_id, ur.password, ur.password_retries, ur.password_expired, ur.salt');
+        $this->db->select('u.users_id, u.user_type, u.date_of_birth, u.first_name, u.last_name, u.middle_name, u.phone, u.fax, u.mobile, u.photo, u.email, ur.status, ur.logon_id, ur.password, ur.password_retries, ur.password_expired, ur.salt');
         $this->db->from('users as u');
 		$this->db->join('userreg as ur' , "u.users_id = ur.users_id", 'left');
         $this->db->where($condition);

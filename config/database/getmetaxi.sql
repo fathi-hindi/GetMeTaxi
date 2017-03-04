@@ -315,15 +315,16 @@ CREATE TABLE `users` (
   `phone` varchar(32) NOT NULL,
   `fax` varchar(32) NOT NULL,
   `mobile` varchar(32) NOT NULL,
-  `photo` varchar(32) NOT NULL
+  `photo` varchar(32) NOT NULL,
+  `email` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`users_id`, `user_type`, `date_of_birth`, `first_name`, `last_name`, `middle_name`, `phone`, `fax`, `mobile`, `photo`) VALUES
-(1016, 'R', '0000-00-00', 'Fathi', 'Hindi', '', '0597262705', '', '', '');
+INSERT INTO `users` (`users_id`, `user_type`, `date_of_birth`, `first_name`, `last_name`, `middle_name`, `phone`, `fax`, `mobile`, `photo`, `email`) VALUES
+(1016, 'R', '0000-00-00', 'Fathi', 'Hindi', '', '0597262705', '', '', '', 'fathi@test.com');
 
 --
 -- Indexes for dumped tables

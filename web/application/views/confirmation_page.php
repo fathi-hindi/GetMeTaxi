@@ -6,7 +6,7 @@
 			<?php if (isset($order) && $order != false) { ?>
 			<i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>	
 			<h2 class="text-center">Thank you for booking!</h2>
-			<h5 class="text-center mb30">Booking details has been send to johndoe@gmail.com</h5>
+			<h5 class="text-center mb30">Booking details has been send to <?php echo $order_user->email; ?></h5>
 			
 			<?php include('order_details_section.php'); ?>
 			
