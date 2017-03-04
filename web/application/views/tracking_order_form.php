@@ -8,29 +8,29 @@
 			<p id="tracking_error-panle" class="error-message"></p>
 			<div class="row">
 				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
+					<div class="form-group form-group-icon-left">
 						<i class="fa fa-calendar  input-icon"></i>
 						<label>Order Number #</label>
 						<input class="typeahead form-control" placeholder="Order #" name="orderId" type="text" />
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
+					<div class="form-group form-group-icon-left">
 						<i class="fa fa-user input-icon input-icon-highlight"></i>
 						<label>First Name</label>
 						<input class="form-control" name="firstName" placeholder="First Name" type="text" />
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
+					<div class="form-group form-group-icon-left">
 						<i class="fa fa-user input-icon input-icon-highlight"></i>
 						<label>Last Name</label>
 						<input class="form-control" name="lastName" placeholder="Last Name" type="text" />
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="form-group form-group-lg form-group-icon-left">
-						<button class="btn btn-primary btn-lg" type="button" onClick="CheckoutHelperJS.validateTrackingOrderForm(document.trackingOrderForm);">Find Your Order</button>
+					<div class="form-group form-group-icon-left find-order-button">
+						<button class="btn btn-primary" type="button" onClick="CheckoutHelperJS.validateTrackingOrderForm(document.trackingOrderForm);">Find Your Order</button>
 					</div>
 				</div>
 			</div>
