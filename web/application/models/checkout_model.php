@@ -209,5 +209,26 @@ Class Checkout_model extends CI_Model {
 			}
 		}
 	}
+	
+	/**
+     * @Summary: Cancel order by update the order status to 'X'.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 03/07/2017.
+     */
+    public function cancelOrder($orders_id) {
+        return $this->updateOrderStatus($orders_id, ORDERS_STATUS_CANCELES);
+	}
+	
+	/**
+     * @Summary: Cancel order by update the order status to 'X'.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 03/07/2017.
+     */
+    public function updateOrderStatus($orders_id, $status) {
+		$this->db->where('orders_id', $orders_id);
+		$data = array ('status' => $status);
+        return $this->db->update('orders', $data);
+	}
+	
 }
 ?>

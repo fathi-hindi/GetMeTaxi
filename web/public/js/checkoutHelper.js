@@ -152,7 +152,7 @@ CheckoutHelperJS={
 				
 				success: function (data) {
 					if (data['status'] == 'sucsess') {
-						document.location.href = '/Checkout/confirmation?orderId=' + data['orders_id'];
+						document.location.href = '/Checkout/summary?orderId=' + data['orders_id'];
 					} else {
 						if (CheckoutHelperJS.userType == 'G') {
 							ErrorHelperJS.setErrorMessage(data['error_message'], ErrorHelperJS.GUEST_FORM_ERROR_DIV_ID_PREFIX);

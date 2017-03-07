@@ -32,24 +32,13 @@ class Checkout extends CI_Controller {
 			$error_message = 'Invalid order number.';
 		} else {
 			$order = $this->checkout_model->findOrdersById($order_id);
-			if ($order) {
+			if ($order && ($order->status == ORDERS_STATUS_PENDING || $order->status == ORDERS_STATUS_SUBMITTED)) {
 				$order_users_id = $order->users_id;
-				if ($order_users_id != getUserId()) {
-					$first_name = $this->input->get('firstName');
-					$last_name = $this->input->get('lastName');
-					if (isset($first_name) && isset($last_name)) {
-						$order_user = $this->logon_model->findUserByUsersId($order_users_id);
-						if (($order_user == false) || ($order_user->first_name != $first_name) || ($order_user->last_name != $last_name)) {
-							$order = false;
-							$error_message = 'You are not authorize to view this order.';
-						}
-					} else {
-						$order = false;
-						$error_message = 'You are not authorize to view this order.';
-					}
-				}  else {
-					// just populate the user infor.
+				if ($order_users_id == getUserId()) {
 					$order_user = $this->logon_model->findUserByUsersId(getUserId());
+				}  else {
+					$order = false;
+					$error_message = 'You are not authorize to view this order.';
 				}
 			} else {
 				$order = false;
@@ -63,8 +52,76 @@ class Checkout extends CI_Controller {
 		}
 		$data['error_message'] = $error_message;
 		
+		if ($order != false && $error_message == '') {
+			
+			$this->checkout_model->updateOrderStatus($order->orders_id, ORDERS_STATUS_SUBMITTED);
+			
+			$this->load->view('header', $data);
+			$this->load->view('confirmation_page', $data);
+			$this->load->view('footer', $data);
+		} else {
+			$data['is_checkout_summary'] = true;
+			$this->load->view('header', $data);
+			$this->load->view('order_details_page', $data);
+			$this->load->view('footer', $data);
+		}
+	}
+	
+	/**
+	 * Cancel the pending order and redirect the customer to the home page.
+	 */
+	public function cancel()
+	{
+		$data = array();
+		$order_id = $this->input->get('orderId');
+		if ($order_id != '') {
+			$order = $this->checkout_model->findOrdersById($order_id);
+			if ($order && $order->status == ORDERS_STATUS_PENDING) {
+				$order_users_id = $order->users_id;
+				if ($order_users_id == getUserId()) {
+					$this->checkout_model->cancelOrder($order_id);
+				}
+			}
+		}
+		redirect('index.php', 'refresh');
+	}
+	
+	/**
+	 * 
+	 */
+	public function summary()
+	{
+		$data = array();
+		$order_id = $this->input->get('orderId');
+		$error_message = '';
+		if ($order_id == '') {
+			$order = false;
+			$error_message = 'Invalid order number.';
+		} else {
+			$order = $this->checkout_model->findOrdersById($order_id);
+			if ($order && $order->status == ORDERS_STATUS_PENDING) {
+				$order_users_id = $order->users_id;
+				if ($order_users_id == getUserId()) {
+					$order_user = $this->logon_model->findUserByUsersId(getUserId());
+				}  else {
+					$order = false;
+					$error_message = 'You are not authorize to view this order.';
+				}
+			} else {
+				$order = false;
+				$error_message = 'Invalid order number.';
+			}
+		}
+		
+		$data['order'] = $order;
+		if (isset($order_user)) {
+			$data['order_user'] = $order_user;
+		}
+		$data['error_message'] = $error_message;
+		$data['is_checkout_summary'] = true;
+		
 		$this->load->view('header', $data);
-		$this->load->view('confirmation_page', $data);
+		$this->load->view('order_details_page', $data);
 		$this->load->view('footer', $data);
 	}
 	
