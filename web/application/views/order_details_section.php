@@ -44,6 +44,7 @@
 							<img src="<?php echo USER_PHOTO_FOLDER_PATH . ($order_user->photo != '' ? $order_user->photo : USER_PHOTO_DEFAULT_IMG ); ?>" title="Fathi Hindi">
 							<h5><?php echo $order_user->first_name . ' ' . $order_user->last_name; ?></h5>
 							<p><?php echo $order_user->phone; ?></p>
+							<p><?php echo $order_user->email; ?></p>
 						</div>
 					</header>
 				</div>
