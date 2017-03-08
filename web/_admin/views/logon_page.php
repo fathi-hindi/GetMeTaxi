@@ -29,19 +29,21 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">Admin<b>BSB</b></a>
-            <small>Admin BootStrap Based - Material Design</small>
+            <a href="/">
+				<img src="/public/images/logo-invert.png" alt="Image Alternative text" title="Image Title">
+			</a>
+            <small>Booking, reviews, and advices on taxi and other.</small>
         </div>
         <div class="card">
             <div class="body">
                 <form id="sign_in" method="POST">
-                    <div class="msg">Sign in to start your session</div>
+                    <div class="msg">Sign in to your admin account</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="User Name" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -63,7 +65,7 @@
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
-                            <a href="sign-up.html">Register Now!</a>
+                            
                         </div>
                         <div class="col-xs-6 align-right">
                             <a href="forgot-password.html">Forgot Password?</a>
