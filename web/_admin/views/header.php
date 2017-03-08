@@ -10,10 +10,14 @@
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
+	-->
+	<!-- Local Google Fonts -->
+    <link href="/public/admin/fonts/css.css" rel="stylesheet">
+    <link href="/public/admin/fonts/icon.css" rel="stylesheet">
+	
     <!-- Bootstrap Core Css -->
     <link href="/public/admin/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
