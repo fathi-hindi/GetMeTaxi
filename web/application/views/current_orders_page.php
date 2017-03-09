@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="container">
-	<h1 class="page-title">Booking History</h1>
+	<h1 class="page-title">Current Orders</h1>
 </div>
 
 <div class="container">
@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-md-9">
 			<div>
-				<h5>All Orders</h5>
+				<h5>Current Orders</h5>
 			</div>
 			<table class="table table-bordered table-striped table-booking-history">
 				<thead>
@@ -22,7 +22,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($orders as $order) { ?>
+					<?php foreach ($current_orders as $order) { ?>
 					<tr>
 						<td><a href="/order/orderDetails?orderId=<?php echo $order->orders_id; ?>"><?php echo $order->orders_id; ?></a></td>
 						<td><?php echo $order->time_placed; ?></td>

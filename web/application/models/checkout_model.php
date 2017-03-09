@@ -147,7 +147,7 @@ Class Checkout_model extends CI_Model {
      */
     public function findCurrentOrdersByUsersId($users_id) {
         $result = array();
-		$condition = "o.users_id ='" . $users_id . "' and status = '" . ORDERS_STATUS_PENDING . "'";
+		$condition = "o.users_id ='" . $users_id . "' and (status = '" . ORDERS_STATUS_PENDING . "' or status = '" . ORDERS_STATUS_SUBMITTED . "')";
         $this->db->select('o.orders_id, o.time_placed, o.last_update, o.status, o.users_id, o.comment, o.type, o.source');
         $this->db->from('orders as o');
         $this->db->where($condition);

@@ -46,10 +46,23 @@ class Account extends CI_Controller {
 		$data = array();
 		
 		$data['orders'] = $this->checkout_model->findOrdersByUsersId(getUserId());
-		$data['current_orders'] = $this->checkout_model->findCurrentOrdersByUsersId(getUserId());
 		
 		$this->load->view('header', $data);
 		$this->load->view('history_page', $data);
+		$this->load->view('footer', $data);
+	}
+	
+	/**
+	 * Main function for current orders view.
+	 */
+	public function currentOrders()
+	{
+		$data = array();
+		
+		$data['current_orders'] = $this->checkout_model->findCurrentOrdersByUsersId(getUserId());
+		
+		$this->load->view('header', $data);
+		$this->load->view('current_orders_page', $data);
 		$this->load->view('footer', $data);
 	}
 	
