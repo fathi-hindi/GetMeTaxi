@@ -40,20 +40,12 @@
     <link rel="alternate stylesheet" type="text/css" href="/public/css/schemes/scarlet.css" title="scarlet" media="all" />
 </head>
 
-<body class="<?php if(isset($body_class)) echo $body_class ?>">
+<body class="<?php if(isset($body_class)) echo $body_class ?>" onLoad="onAllPageLoad();">
 
-
-    <!-- FACEBOOK WIDGET -->
-    <div id="fb-root"></div>
     <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+		function onAllPageLoad () {
+			CheckoutHelperJS.userType = '<?php if (getUserType() == '') echo USER_TYPE_GUEST; else echo getUserType();  ?>';
+		}
     </script>
     <!-- /FACEBOOK WIDGET -->
     <div class="global-wrap">

@@ -188,4 +188,35 @@ CheckoutHelperJS={
 		}
 		form.submit();
 	},
+	
+	/**
+	 * 
+	 */
+	logonToCheckout:function(){
+		ErrorHelperJS.clearErrorMessage(ErrorHelperJS.LOGON_AT_CHECKOUT_FORM_ERROR_DIV_ID_PREFIX);
+		
+		var form = document.forms['logonAtCheckoutForm'];
+		var logonId = form.logonId.value;
+		var password = form.password.value;
+		
+		// TODO: Add front end validation.
+		
+		$.ajax({
+            url: "/logon/ajaxUserLogon",
+            type: "POST",
+			dataType: "JSON",
+            data: {logonId: logonId, password: password},
+            success: function (data) {	
+				if (data.status == 'sucsess') {
+					CheckoutHelperJS.userType = 'R';
+					CheckoutHelperJS.processOrder();
+				} else if(data.status == 'failed') {
+					ErrorHelperJS.setErrorMessage(data.error, ErrorHelperJS.LOGON_AT_CHECKOUT_FORM_ERROR_DIV_ID_PREFIX);
+				}
+            },
+			error: function () {
+				ErrorHelperJS.setErrorMessage('Unable to sign in now. Please try again.', ErrorHelperJS.LOGON_AT_CHECKOUT_FORM_ERROR_DIV_ID_PREFIX);
+			}
+        });
+	},
 }
