@@ -21,7 +21,6 @@
 						<th>To</th>
 						<th>Date / Time</th>
 						<th>Status</th>
-						<th>Cancel</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,8 +32,6 @@
 						<td><?php if (isset($order->to_address)) echo $order->to_address->address1; ?></td>
 						<td><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
 						<td><?php echo $order->status; ?></td>
-						<td class="text-center"><a class="btn btn-default btn-sm" href="#">Cancel</a>
-						</td>
 					</tr>
 					<?php } ?>
 				</tbody>
@@ -52,7 +49,6 @@
 						<th>To</th>
 						<th>Date / Time</th>
 						<th>Status</th>
-						<th>Cancel</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,8 +60,6 @@
 						<td><?php if (isset($order->to_address)) echo $order->to_address->address1; ?></td>
 						<td><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
 						<td><?php echo $order->status; ?></td>
-						<td class="text-center"><a class="btn btn-default btn-sm" href="#">Cancel</a>
-						</td>
 					</tr>
 					<?php } ?>
 				</tbody>
