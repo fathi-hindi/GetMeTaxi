@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="tab-pane fade" id="tab-3">
+<div class="tab-pane fade<?php if ($acive == 3) echo ' in active'; ?>" id="tab-3">
 	<h2>In Demand Delivery In Minutes!</h2>
 	<form>
 		<div class="form-group form-group-lg form-group-icon-left">

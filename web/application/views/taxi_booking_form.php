@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="tab-pane fade" id="tab-2">
+<div class="tab-pane fade<?php if ($acive == 2) echo ' in active'; ?>" id="tab-2">
 	<h2>Booking Your Taxi Now</h2>
 	<p id="taxi_error-panle" class="error-message"></p>
 	<div>

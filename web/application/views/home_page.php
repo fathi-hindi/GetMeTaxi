@@ -12,36 +12,36 @@
 							<h1>Find Your Perfect Trip</h1>
 							<div class="tabbable">
 								<ul class="nav nav-tabs" id="myTab">
-									<?php $acive = true; ?> 
+									<?php $acive = -1; ?> 
 									<?php if (HOTELS_BOOKING_ENABLE) { ?>
-									<li <?php if ($acive) { $acive = false; echo "class='active'"; } ?>>
+									<li <?php if ($acive == -1) { $acive = 1; echo "class='active'"; } ?>>
 										<a href="#tab-1" data-toggle="tab"><i class="fa fa-building-o"></i> <span >Hotels</span></a>
 									</li>
 									<?php }  ?>
 									<?php if (TAXI_BOOKING_ENABLE) { ?>
-									<li <?php if ($acive) { $acive = false; echo "class='active'"; } ?>>
+									<li <?php if ($acive == -1) { $acive = 2; echo "class='active'"; } ?>>
 										<a href="#tab-2" data-toggle="tab"><i class="fa fa-cab"></i> <span >Taxi</span></a>
 									</li>
 									<?php }  ?>
 									<?php if (DELIVERY_BOOKING_ENABLE) { ?>
-									<li <?php if ($acive) { $acive = false; echo "class='active'"; } ?>>
+									<li <?php if ($acive == -1) { $acive = 3; echo "class='active'"; } ?>>
 										<a href="#tab-3" data-toggle="tab"><i class="fa fa-home"></i> <span >Get Delivery</span></a>
 									</li>
 									<?php }  ?>
 									<?php if (CAR_BOOKING_ENABLE) { ?>
-									<li <?php if ($acive) { $acive = false; echo "class='active'"; } ?>>
+									<li <?php if ($acive == -1) { $acive = 4; echo "class='active'"; } ?>>
 										<a href="#tab-4" data-toggle="tab"><i class="fa fa-car"></i> <span >Cars</span></a>
 									</li>
 									<?php }  ?>
 									<?php if (ACTIVETY_BOOKING_ENABLE) { ?>
-									<li <?php if ($acive) { $acive = false; echo "class='active'"; } ?>>
+									<li <?php if ($acive == -1) { $acive = 5; echo "class='active'"; } ?>>
 										<a href="#tab-5" data-toggle="tab"><i class="fa fa-bolt"></i> <span >Activities</span></a>
 									</li>
 									<?php }  ?>
 								</ul>
 								<div class="tab-content">
 									<?php if (HOTELS_BOOKING_ENABLE) { ?>
-									<div class="tab-pane fade in active" id="tab-1">
+									<div class="tab-pane fade<?php if ($acive ==1) echo ' in active'; ?>" id="tab-1">
 										<h2>Search and Save on Hotels</h2>
 										<form>
 											<div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
@@ -135,7 +135,7 @@
 									<?php if (DELIVERY_BOOKING_ENABLE) { include('delivery_booking_form.php'); } ?>
 									
 									<?php if (CAR_BOOKING_ENABLE) { ?>
-									<div class="tab-pane fade" id="tab-4">
+									<div class="tab-pane fade<?php if ($acive == 4) echo ' in active'; ?>" id="tab-4">
 										<h2>Search for Cheap Rental Cars</h2>
 										<form>
 											<div class="row">
@@ -185,7 +185,7 @@
 									</div>
 									<?php }  ?>
 									<?php if (ACTIVETY_BOOKING_ENABLE) { ?>
-									<div class="tab-pane fade" id="tab-5">
+									<div class="tab-pane fade<?php if ($acive == 5) echo ' in active'; ?>" id="tab-5">
 										<h2>Search for Activities</h2>
 										<form>
 											<div class="input-daterange" data-date-format="M d, D">

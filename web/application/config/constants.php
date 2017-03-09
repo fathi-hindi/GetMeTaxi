@@ -86,11 +86,11 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 // Site Features.
-define('HOTELS_BOOKING_ENABLE', true);
+define('HOTELS_BOOKING_ENABLE', false);
 define('DELIVERY_BOOKING_ENABLE', true);
 define('TAXI_BOOKING_ENABLE', true);
-define('CAR_BOOKING_ENABLE', true);
-define('ACTIVETY_BOOKING_ENABLE', true);
+define('CAR_BOOKING_ENABLE', false);
+define('ACTIVETY_BOOKING_ENABLE', false);
 define('SEARCH_ENABLE', false);
 
 
