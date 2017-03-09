@@ -10,22 +10,14 @@
 			
 			<?php include('order_details_section.php'); ?>
 			
-			<h4 class="text-center">You might also need in Nablus</h4>
+			<h4 class="text-center">You might also need in Palestine</h4>
 			<ul class="list list-inline list-center">
-				<li><a class="btn btn-primary" href="#"><i class="fa fa-building-o"></i> Hotels</a>
-					<p class="text-center lh1em mt5"><small>362 offers<br /> from $75</small>
+				<li><a class="btn btn-primary" href="#"><i class="fa fa-cab"></i> Taxi</a>
+					<p class="text-center lh1em mt5"><small>26+ dirvers<br /> from 10 NIS</small>
 					</p>
 				</li>
-				<li><a class="btn btn-primary" href="#"><i class="fa fa-home"></i> Rentlas</a>
-					<p class="text-center lh1em mt5"><small>240 offers<br /> from $85</small>
-					</p>
-				</li>
-				<li><a class="btn btn-primary" href="#"><i class="fa fa-dashboard"></i> Cars</a>
-					<p class="text-center lh1em mt5"><small>165 offers<br /> from $143</small>
-					</p>
-				</li>
-				<li><a class="btn btn-primary" href="#"><i class="fa fa-bolt"></i> Activities</a>
-					<p class="text-center lh1em mt5"><small>366 offers<br /> from $116</small>
+				<li><a class="btn btn-primary" href="#"><i class="fa fa-home"></i> Delivery services</a>
+					<p class="text-center lh1em mt5"><small>5 Venders<br /> from 8 NIS</small>
 					</p>
 				</li>
 			</ul>

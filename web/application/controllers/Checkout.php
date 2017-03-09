@@ -55,6 +55,7 @@ class Checkout extends CI_Controller {
 		if ($order != false && $error_message == '') {
 			
 			$this->checkout_model->updateOrderStatus($order->orders_id, ORDERS_STATUS_SUBMITTED);
+			$order->status = ORDERS_STATUS_SUBMITTED;
 			
 			$this->load->view('header', $data);
 			$this->load->view('confirmation_page', $data);
