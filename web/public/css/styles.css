@@ -2239,6 +2239,7 @@ img.pp-img {
 }
 .top-user-area .top-user-area-list > li.top-user-area-lang .nav-drop-menu li a {
   line-height: 20px;
+  width:110px;
 }
 .top-user-area .top-user-area-list > li.top-user-area-lang .nav-drop-menu li a img {
   width: 20px;

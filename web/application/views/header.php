@@ -151,53 +151,20 @@
 										<li><a href="/logon">Sign In</a></li>
 									<?php } ?>
                                     
-                                    <li class="nav-drop"><a href="#">USD $<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a>
-                                        <ul class="list nav-drop-menu">
-                                            <li><a href="#">EUR<span class="right">€</span></a>
-                                            </li>
-                                            <li><a href="#">GBP<span class="right">£</span></a>
-                                            </li>
-                                            <li><a href="#">JPY<span class="right">円</span></a>
-                                            </li>
-                                            <li><a href="#">CAD<span class="right">$</span></a>
-                                            </li>
-                                            <li><a href="#">AUD<span class="right">A$</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li class="top-user-area-lang nav-drop">
                                         <a href="#">
-                                            <img src="/public/images/flags/32/uk.png" alt="Image Alternative text" title="Image Title" />ENG<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i>
+                                            <img src="/public/images/flags/32/uk.png" />English
+											<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i>
                                         </a>
                                         <ul class="list nav-drop-menu">
                                             <li>
-                                                <a title="German" href="#">
-                                                    <img src="/public/images/flags/32/de.png" alt="Image Alternative text" title="Image Title" /><span class="right">GER</span>
+                                                <a title="English" href="#">
+                                                    <img src="/public/images/flags/32/de.png" /><span class="right">English</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a title="Japanise" href="#">
-                                                    <img src="/public/images/flags/32/jp.png" alt="Image Alternative text" title="Image Title" /><span class="right">JAP</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="Italian" href="#">
-                                                    <img src="/public/images/flags/32/it.png" alt="Image Alternative text" title="Image Title" /><span class="right">ITA</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="French" href="#">
-                                                    <img src="/public/images/flags/32/fr.png" alt="Image Alternative text" title="Image Title" /><span class="right">FRE</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="Russian" href="#">
-                                                    <img src="/public/images/flags/32/ru.png" alt="Image Alternative text" title="Image Title" /><span class="right">RUS</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="Korean" href="#">
-                                                    <img src="/public/images/flags/32/kr.png" alt="Image Alternative text" title="Image Title" /><span class="right">KOR</span>
+                                                <a title="Arabic" href="#">
+                                                    <img src="/public/images/flags/32/jp.png"/><span class="right">Arabic</span>
                                                 </a>
                                             </li>
                                         </ul>
