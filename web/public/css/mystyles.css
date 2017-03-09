@@ -62,7 +62,7 @@
 #welcomeModal  .modal-content {
 	border-radius:0;
 	height:350px;
-	background-image:url("/public/images/el_inevitable_paso_del_tiempo_2048x2048.png");
+	background-image:url("/public/images/welcome_modal.png");
 	background-size: cover;
 }
 #welcomeModal  .modal-content .modal-header {
