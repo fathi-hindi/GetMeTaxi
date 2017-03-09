@@ -10,13 +10,9 @@
 		</li>
 		<li><a href="/account/setting"><i class="fa fa-cog"></i>Settings</a>
 		</li>
-		<li><a href="#"><i class="fa fa-camera"></i>My Travel Photos</a>
-		</li>
 		<li><a href="/account/history"><i class="fa fa-clock-o"></i>Booking History</a>
 		</li>
 		<li><a href="/account/addressBook"><i class="fa fa-credit-card"></i>Address Book</a>
-		</li>
-		<li><a href="#"><i class="fa fa-heart-o"></i>Wishlist</a>
 		</li>
 	</ul>
 </aside>
