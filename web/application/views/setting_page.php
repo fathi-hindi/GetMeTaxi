@@ -76,6 +76,14 @@
 						<hr />
 						<input class="btn btn-primary" type="button" value="Change Password" onClick="LogonHelperJS.ajaxChangePassword();" />
 					</form>
+					<div class="gap"></div>
+					<h4>Update Your Avatar</h4>
+					<form>
+						<div class="form-group">
+							<input class="form-control" type="file" />
+						</div>
+						<input class="btn btn-primary" type="button" value="Upload" onClick="" />
+					</form>
 				</div>
 			</div>
 
