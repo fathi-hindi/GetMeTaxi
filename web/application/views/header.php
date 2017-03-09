@@ -124,7 +124,7 @@
             <div class="header-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <a class="logo" href="/">
                                 <img src="/public/images/logo-invert.png" alt="Image Alternative text" title="Image Title" />
                             </a>
@@ -139,10 +139,11 @@
                             </form>
 							<?php } ?>
                         </div>
-                        <div class="col-md-4">
+						
+                        <div class="col-md-5">
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
-                                    
+                                    <li><a><i class="fa fa-phone input-icon"></i> +972597262705 </a></li>
 									<?php if (isLoggedIn()) { ?>
 										<li class="top-user-area-avatar">
 											<a href="/account">
