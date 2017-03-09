@@ -17,9 +17,7 @@
 					<tr>
 						<th>Order #</th>
 						<th>Order Date</th>
-						<th>From</th>
-						<th>To</th>
-						<th>Date / Time</th>
+						<th>Details</th>
 						<th>Status</th>
 					</tr>
 				</thead>
@@ -28,9 +26,10 @@
 					<tr>
 						<td><a href="/order/orderDetails?orderId=<?php echo $order->orders_id; ?>"><?php echo $order->orders_id; ?></a></td>
 						<td><?php echo $order->time_placed; ?></td>
-						<td><?php if (isset($order->from_address)) echo $order->from_address->address1; ?></td>
-						<td><?php if (isset($order->to_address)) echo $order->to_address->address1; ?></td>
-						<td><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
+						<td>
+							<b>From: </b><?php if (isset($order->from_address)) echo $order->from_address->address1; ?>
+							<br/><b>To: </b><?php if (isset($order->to_address)) echo $order->to_address->address1; ?>
+							<br/><b>At: </b><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
 						<td><?php echo $order->status; ?></td>
 					</tr>
 					<?php } ?>
@@ -45,9 +44,7 @@
 					<tr>
 						<th>Order #</th>
 						<th>Order Date</th>
-						<th>From</th>
-						<th>To</th>
-						<th>Date / Time</th>
+						<th>Details</th>
 						<th>Status</th>
 					</tr>
 				</thead>
@@ -56,9 +53,10 @@
 					<tr>
 						<td><a href="/order/orderDetails?orderId=<?php echo $order->orders_id; ?>"><?php echo $order->orders_id; ?></a></td>
 						<td><?php echo $order->time_placed; ?></td>
-						<td><?php if (isset($order->from_address)) echo $order->from_address->address1; ?></td>
-						<td><?php if (isset($order->to_address)) echo $order->to_address->address1; ?></td>
-						<td><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
+						<td>
+							<b>From: </b><?php if (isset($order->from_address)) echo $order->from_address->address1; ?>
+							<br/><b>To: </b><?php if (isset($order->to_address)) echo $order->to_address->address1; ?>
+							<br/><b>At: </b><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
 						<td><?php echo $order->status; ?></td>
 					</tr>
 					<?php } ?>
