@@ -19,7 +19,7 @@
 						<div class="form-group form-group-icon-left">
 							<i class="fa fa-lock input-icon"></i>
 							<label>Password</label>
-							<input class="typeahead form-control" placeholder="My secret password" type="text" />
+							<input class="typeahead form-control" placeholder="My secret password" type="password" />
 						</div>
 						<div class="form-group form-group-icon-left">
 							<button class="btn btn-primary" onClick="">SIGN IN AND CONTINUE</button>
