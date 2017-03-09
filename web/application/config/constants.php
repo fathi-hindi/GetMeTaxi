@@ -91,6 +91,8 @@ define('DELIVERY_BOOKING_ENABLE', true);
 define('TAXI_BOOKING_ENABLE', true);
 define('CAR_BOOKING_ENABLE', true);
 define('ACTIVETY_BOOKING_ENABLE', true);
+define('SEARCH_ENABLE', false);
+
 
 // Session keys.
 define('SESSION_LANGUAGE_ID_KEY', 'language_id');
