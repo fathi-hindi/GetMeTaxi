@@ -462,12 +462,12 @@ ALTER TABLE `taxi_drivers`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `address_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100;
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1017;
+  MODIFY `member_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -477,12 +477,12 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `taxitype`
 --
 ALTER TABLE `taxitype`
-  MODIFY `taxitype_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `taxitype_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100;
 --
 -- AUTO_INCREMENT for table `userpwdhst`
 --
 ALTER TABLE `userpwdhst`
-  MODIFY `userpwdhst_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+  MODIFY `userpwdhst_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100;
 --
 -- Constraints for dumped tables
 --
