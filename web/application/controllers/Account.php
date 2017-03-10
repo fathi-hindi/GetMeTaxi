@@ -10,6 +10,7 @@ class Account extends CI_Controller {
         }
 		$this->load->model('logon_model');
 		$this->load->model('checkout_model');
+		$this->load->model('Statictics_model');
     }
 	
 	/**
@@ -20,6 +21,7 @@ class Account extends CI_Controller {
 		$data = array();
 		
 		$data['current_orders'] = $this->checkout_model->findCurrentOrdersByUsersId(getUserId());
+		$data['statictics'] = $this->getStatictics();
 		
 		$this->load->view('header', $data);
 		$this->load->view('myaccount_page', $data);
@@ -165,5 +167,70 @@ class Account extends CI_Controller {
 			$isValid = $this->logon_model->isValidPassword(getUserId(), $current_password);
 		} 
 		return $isValid;
+	}
+	
+	/**
+     * @Summary: Get User Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function getStatictics() {
+		$result = array();
+		
+		$result['orders'] = $this->getOrdersStatictics();
+		$result['users'] = $this->getUsersStatictics();
+		$result['deliverys'] = $this->getDeliverysStatictics();
+		$result['taxi_offices'] = $this->getTaxiOfficesStatictics();
+		
+		return $result;
+	}
+	
+	/**
+     * @Summary: Get User Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function getOrdersStatictics() {
+		$count = 0;
+		if (getUserType() == USER_TYPE_REGISTERED) {
+			$count = $this->Statictics_model->getPassengerSubmittedOrdersCount();
+		} else if (getUserType() == USER_STATUS_OFFICE) {
+			$count = $this->Statictics_model->getOfficeReceivedOrdersCount();
+		} else if (getUserType() == USER_STATUS_DRIVER) {
+			$count = $this->Statictics_model->getDriverProcessedOrdersCount();
+		} else if (getUserType() == USER_STATUS_ADMIN) {
+			$count = $this->Statictics_model->getAllOrdersCount();
+		}
+		return $count;
+	}
+	
+	/**
+     * @Summary: Get User Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function getUsersStatictics() {
+		$count = 0;
+		if (getUserType() == USER_STATUS_ADMIN) {
+			$count = $this->Statictics_model->getAllUsersCount();
+		} 
+		return $count;
+	}
+	
+	/**
+     * @Summary: Get User Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function getDeliverysStatictics() {
+		return '0';
+	}
+	
+	/**
+     * @Summary: Get User Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function getTaxiOfficesStatictics() {
+		$count = 0;
+		if (getUserType() == USER_STATUS_ADMIN) {
+			$count = $this->Statictics_model->getAllTaxiOfficeCount();
+		} 
+		return $count;
 	}
 }

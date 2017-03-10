@@ -11,22 +11,34 @@
 		<div class="col-md-9">
 			<h4>Total Traveled</h4>
 			<ul class="list list-inline user-profile-statictics mb30">
-				<li><i class="fa fa-truck user-profile-statictics-icon"></i>
-					<h5>140</h5>
+				<?php if (isset($statictics) && isset($statictics['orders'])) { ?>
+				<li>
+					<i class="fa fa-truck user-profile-statictics-icon"></i>
+					<h5><?php echo $statictics['orders']; ?></h5>
 					<p>Orders</p>
 				</li>
-				<li><i class="fa fa-users user-profile-statictics-icon"></i>
-					<h5>123</h5>
+				<?php } ?>
+				<?php if (isset($statictics) && isset($statictics['users'])) { ?>
+				<li>
+					<i class="fa fa-users user-profile-statictics-icon"></i>
+					<h5><?php echo $statictics['users']; ?></h5>
 					<p>Users</p>
 				</li>
-				<li><i class="fa fa-car user-profile-statictics-icon"></i>
-					<h5>3</h5>
+				<?php } ?>
+				<?php if (isset($statictics) && isset($statictics['deliverys'])) { ?>
+				<li>
+					<i class="fa fa-car user-profile-statictics-icon"></i>
+					<h5><?php echo $statictics['deliverys']; ?></h5>
 					<p>Delivery</p>
 				</li>
-				<li><i class="fa fa-taxi user-profile-statictics-icon"></i>
-					<h5>2</h5>
+				<?php } ?>
+				<?php if (isset($statictics) && isset($statictics['taxi_offices'])) { ?>
+				<li>
+					<i class="fa fa-taxi user-profile-statictics-icon"></i>
+					<h5><?php echo $statictics['taxi_offices']; ?></h5>
 					<p>Taxi Office</p>
 				</li>
+				<?php } ?>
 			</ul>
 			
 			<div>
