@@ -272,18 +272,18 @@
 </div>
 <div class="container">
 	<div class="gap"></div>
-	<h2 class="text-center">Top Destinations</h2>
+	<h2 class="text-center">Top Partners</h2>
 	<div class="gap">
 		<div class="row row-wrap">
 			<div class="col-md-3">
 				<div class="thumb">
 					<header class="thumb-header">
-						<a class="hover-img curved" href="#">
-							<img src="/public/images/the_journey_home_400x300.jpg" alt="Image Alternative text" title="the journey home" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
+						<a href="#">
+							<img src="/public/images/Maserati-GranTurismo-Sport-facelift.png" alt="Image Alternative text" title="the journey home" />
 						</a>
 					</header>
 					<div class="thumb-caption">
-						<h4 class="thumb-title">Africa</h4>
+						<h4 class="thumb-title">Taxi Al-3temad Office</h4>
 						<p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
 					</div>
 				</div>
@@ -291,39 +291,39 @@
 			<div class="col-md-3">
 				<div class="thumb">
 					<header class="thumb-header">
-						<a class="hover-img curved" href="#">
-							<img src="/public/images/upper_lake_in_new_york_central_park_800x600.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
+						<a href="#">
+							<img src="/public/images/Maserati-GranTurismo-Sport-facelift.png" alt="Image Alternative text" title="the journey home" />
 						</a>
 					</header>
 					<div class="thumb-caption">
-						<h4 class="thumb-title">USA</h4>
-						<p class="thumb-desc">Cursus faucibus egestas rutrum mauris vulputate consequat ante</p>
+						<h4 class="thumb-title">Taxi Al-3temad Office</h4>
+						<p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="thumb">
 					<header class="thumb-header">
-						<a class="hover-img curved" href="#">
-							<img src="/public/images/people_on_the_beach_800x600.jpg" alt="Image Alternative text" title="people on the beach" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
+						<a href="#">
+							<img src="/public/images/Maserati-GranTurismo-Sport-facelift.png" alt="Image Alternative text" title="the journey home" />
 						</a>
 					</header>
 					<div class="thumb-caption">
-						<h4 class="thumb-title">Australia</h4>
-						<p class="thumb-desc">Senectus hendrerit torquent lorem scelerisque quam a curae</p>
+						<h4 class="thumb-title">Taxi Al-3temad Office</h4>
+						<p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="thumb">
 					<header class="thumb-header">
-						<a class="hover-img curved" href="#">
-							<img src="/public/images/lack_of_blue_depresses_me_800x600.jpg" alt="Image Alternative text" title="lack of blue depresses me" /><i class="fa fa-plus box-icon-white box-icon-border hover-icon-top-right round"></i>
+						<a href="#">
+							<img src="/public/images/Maserati-GranTurismo-Sport-facelift.png" alt="Image Alternative text" title="the journey home" />
 						</a>
 					</header>
 					<div class="thumb-caption">
-						<h4 class="thumb-title">Greece</h4>
-						<p class="thumb-desc">Penatibus ac lacinia platea cras lobortis nullam dapibus</p>
+						<h4 class="thumb-title">Taxi Al-3temad Office</h4>
+						<p class="thumb-desc">Ut blandit pharetra suspendisse montes libero eleifend bibendum</p>
 					</div>
 				</div>
 			</div>
