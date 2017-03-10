@@ -3,7 +3,12 @@
 <!-- saved from url=(0061)http://remtsoy.com/tf_templates/traveler/demo_v1_7/index.html -->
 <html class="<?php if(isset($html_class)) echo $html_class ?>">
 <head>
-    <title>Booking</title>
+    <title>
+		<?php
+			echo 'Traveler';
+			if (isset($page_title) && $page_title != '') echo ' | ' . $page_title;
+		?>
+	</title>
 
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta name="keywords" content="Template, html, premium, themeforest" />

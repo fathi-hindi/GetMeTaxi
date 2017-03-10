@@ -22,6 +22,7 @@ class Logon extends CI_Controller {
 		$data['body_class'] = 'full';
 		$data['html_class'] = 'full';
 		
+		$data['page_title'] = 'Sign In';
 		$this->load->view('header', $data);
 		$this->load->view('logon_page', $data);
 		$this->load->view('footer', $data);
