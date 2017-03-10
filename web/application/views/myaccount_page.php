@@ -28,7 +28,35 @@
 					<p>Taxi Office</p>
 				</li>
 			</ul>
-			<div id="map-canvas" style="width:100%; height:400px;"></div>
+			
+			<div>
+				<h5>Current Orders</h5>
+			</div>
+			<table class="table table-bordered table-striped table-booking-history">
+				<thead>
+					<tr>
+						<th>Order #</th>
+						<th>Order Date</th>
+						<th>Details</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(isset($current_orders)) { ?>
+						<?php foreach ($current_orders as $order) { ?>
+						<tr>
+							<td><a href="/order/orderDetails?orderId=<?php echo $order->orders_id; ?>"><?php echo $order->orders_id; ?></a></td>
+							<td><?php echo $order->time_placed; ?></td>
+							<td>
+								<b>From: </b><?php if (isset($order->from_address)) echo $order->from_address->address1; ?>
+								<br/><b>To: </b><?php if (isset($order->to_address)) echo $order->to_address->address1; ?>
+								<br/><b>At: </b><?php if (isset($order->date)) echo $order->date; ?>   <?php if (isset($order->time)) echo $order->time; ?></td>
+							<td><?php echo $order->status; ?></td>
+						</tr>
+						<?php } ?>
+					<?php } ?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
