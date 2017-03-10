@@ -13,30 +13,38 @@
 			<ul class="list list-inline user-profile-statictics mb30">
 				<?php if (isset($statictics) && isset($statictics['orders'])) { ?>
 				<li>
-					<i class="fa fa-truck user-profile-statictics-icon"></i>
-					<h5><?php echo $statictics['orders']; ?></h5>
-					<p>Orders</p>
+					<a href="/account/statictics" >
+						<i class="fa fa-truck user-profile-statictics-icon"></i>
+						<h5><?php echo $statictics['orders']; ?></h5>
+						<p>Orders</p>
+					</a>
 				</li>
 				<?php } ?>
 				<?php if (isset($statictics) && isset($statictics['users'])) { ?>
 				<li>
-					<i class="fa fa-users user-profile-statictics-icon"></i>
-					<h5><?php echo $statictics['users']; ?></h5>
-					<p>Users</p>
+					<a href="/account/statictics" >
+						<i class="fa fa-users user-profile-statictics-icon"></i>
+						<h5><?php echo $statictics['users']; ?></h5>
+						<p>Users</p>
+					</a>
 				</li>
 				<?php } ?>
 				<?php if (isset($statictics) && isset($statictics['deliverys'])) { ?>
 				<li>
-					<i class="fa fa-car user-profile-statictics-icon"></i>
-					<h5><?php echo $statictics['deliverys']; ?></h5>
-					<p>Delivery</p>
+					<a href="/account/statictics" >
+						<i class="fa fa-car user-profile-statictics-icon"></i>
+						<h5><?php echo $statictics['deliverys']; ?></h5>
+						<p>Delivery</p>
+					</a>
 				</li>
 				<?php } ?>
 				<?php if (isset($statictics) && isset($statictics['taxi_offices'])) { ?>
 				<li>
-					<i class="fa fa-taxi user-profile-statictics-icon"></i>
-					<h5><?php echo $statictics['taxi_offices']; ?></h5>
-					<p>Taxi Office</p>
+					<a href="/account/statictics" >
+						<i class="fa fa-taxi user-profile-statictics-icon"></i>
+						<h5><?php echo $statictics['taxi_offices']; ?></h5>
+						<p>Taxi Office</a></p>
+					</a>
 				</li>
 				<?php } ?>
 			</ul>

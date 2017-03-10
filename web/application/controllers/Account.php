@@ -21,7 +21,7 @@ class Account extends CI_Controller {
 		$data = array();
 		
 		$data['current_orders'] = $this->checkout_model->findCurrentOrdersByUsersId(getUserId());
-		$data['statictics'] = $this->getStatictics();
+		$data['statictics'] = $this->getOverviewStatictics();
 		
 		$this->load->view('header', $data);
 		$this->load->view('myaccount_page', $data);
@@ -170,10 +170,99 @@ class Account extends CI_Controller {
 	}
 	
 	/**
+	 * Main function for statictics view.
+	 */
+	public function statictics()
+	{
+		$data = array();
+		$statictics = array();
+		
+		$value = array();
+		$value = $this->populatePendingOrderStatictics($value);
+		$value = $this->populateSubmittedOrderStatictics($value);
+		
+		$statictics[] = array(
+			'title' => 'Orders Statictics',
+			'values' => $value
+		);
+		
+		$value2 = array();
+		$value2 = $this->populateGuestUsersStatictics($value2);
+		$value2 = $this->populateRegisteredUsersStatictics($value2);
+		
+		$statictics[] = array(
+			'title' => 'Users Statictics',
+			'values' => $value2
+		);
+		
+		$data['statictics'] = $statictics;
+		
+		$this->load->view('header', $data);
+		$this->load->view('statictics_page', $data);
+		$this->load->view('footer', $data);
+	}
+	
+	/**
+     * @Summary: Populate Pending Order Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function populatePendingOrderStatictics($array) {
+		$value = array (
+			'key' => 'Pending Orders',
+			'icon' => 'fa-truck',
+			'count' => 5
+		);
+		$array[] = $value;
+		return $array;
+	}
+	
+	/**
+     * @Summary: Populate Submitted Order Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function populateSubmittedOrderStatictics($array) {
+		$value = array (
+			'key' => 'Submitted Orders',
+			'icon' => 'fa-truck',
+			'count' => 45
+		);
+		$array[] = $value;
+		return $array;
+	}
+	
+	/**
+     * @Summary: Populate Guest Users Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function populateGuestUsersStatictics($array) {
+		$value = array (
+			'key' => 'Guest Users',
+			'icon' => 'fa-user',
+			'count' => 234
+		);
+		$array[] = $value;
+		return $array;
+	}
+	
+	/**
+     * @Summary: Populate Registered Users Statictics.
+     * @Author:  Fathi Hindi - 03/10/2017.
+     */
+    private function populateRegisteredUsersStatictics($array) {
+		$value = array (
+			'key' => 'Registered Orders',
+			'icon' => 'fa-user',
+			'count' => 510
+		);
+		$array[] = $value;
+		return $array;
+	}
+	
+	/**
      * @Summary: Get User Statictics.
      * @Author:  Fathi Hindi - 03/10/2017.
      */
-    private function getStatictics() {
+    private function getOverviewStatictics() {
 		$result = array();
 		
 		$result['orders'] = $this->getOrdersStatictics();
