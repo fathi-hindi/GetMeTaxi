@@ -6,7 +6,7 @@
 		<p><?php echo getUserLogonId(); ?></p>
 	</div>
 	<ul class="list user-profile-nav">
-		<li><a href="/account"><i class="fa fa-user"></i>Overview</a></li>
+		<li><a href="/account"><i class="fa fa-dashboard"></i>Overview</a></li>
 		<li><a href="/account/setting"><i class="fa fa-cog"></i>Settings</a></li>
 		<li><a href="/account/currentOrders"><i class="fa fa-clock-o"></i>Current Orders</a></li>
 		<li><a href="/account/history"><i class="fa fa-clock-o"></i>Booking History</a></li>

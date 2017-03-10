@@ -41,15 +41,15 @@
 							<label>Phone Number</label>
 							<input name="phone" class="form-control" value="<?php echo $user->phone; ?>" type="text" />
 						</div>
-						<div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+						<div class="form-group form-group-icon-left"><i class="fa fa-mobile input-icon"></i>
 							<label>Mobile Number</label>
 							<input name="mobile" class="form-control" value="<?php echo $user->mobile; ?>" type="text" />
 						</div>
-						<div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+						<div class="form-group form-group-icon-left"><i class="fa fa-fax input-icon"></i>
 							<label>Fax Number</label>
 							<input name="fax" class="form-control" value="<?php echo $user->fax; ?>" type="text" />
 						</div>
-						<div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+						<div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon"></i>
 							<label>Date Of Birth</label>
 							<input name="dateOfBirth" class="form-control" value="<?php if ($user->date_of_birth != '0000-00-00') echo $user->date_of_birth; ?>" type="text" />
 						</div>
