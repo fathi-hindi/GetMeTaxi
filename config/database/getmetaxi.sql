@@ -556,7 +556,7 @@ ALTER TABLE `users`
 -- Constraints for table `users`
 --
 ALTER TABLE `taxi_drivers`
-  ADD CONSTRAINT `fk_117` FOREIGN KEY (`drivers_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_117` FOREIGN KEY (`drivers_id`) REFERENCES `users` (`users_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_118` FOREIGN KEY (`taxioffice_id`) REFERENCES `taxioffice` (`taxioffice_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
   
