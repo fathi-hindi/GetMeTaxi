@@ -39,12 +39,12 @@
                     </div>
                     <div class="col-md-2">
                         <ul class="list list-footer">
-                            <li><a href="#">About US</a></li>
-							<li><a href="#">Our Team</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-							<li><a href="#">Help Center</a></li>
-                            <li><a href="#">Feedback</a></li>
+                            <li><a href="/content/about">About US</a></li>
+							<li><a href="/content/team">Our Team</a></li>
+                            <li><a href="/content/privacy">Privacy Policy</a></li>
+                            <li><a href="/content/terms">Terms of Use</a></li>
+							<li><a href="/content/contact">Help Center</a></li>
+                            <li><a href="/content/feedback">Feedback</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
