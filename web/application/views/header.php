@@ -135,7 +135,7 @@
                         <div class="col-md-5">
                             <div class="top-user-area clearfix">
                                 <ul class="top-user-area-list list list-horizontal list-border">
-                                    <li><a><i class="fa fa-phone input-icon"></i> +972597262705 </a></li>
+                                    <li><a><i class="fa fa-phone input-icon"></i> <?php echo CONTACT_US_PHONE; ?> </a></li>
 									<?php if (isLoggedIn()) { ?>
 										<li class="top-user-area-avatar">
 											<a href="/account">

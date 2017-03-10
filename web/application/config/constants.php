@@ -143,3 +143,7 @@ define('CHECKOUT_TYPE_TAXI', 'Taxi');
 //OTHERS
 define('USER_PHOTO_FOLDER_PATH', '/public/images/users/');
 define('USER_PHOTO_DEFAULT_IMG', 'default.png');
+
+// CONTACT US
+define('CONTACT_US_PHONE', '+972597267205');
+define('CONTACT_US_EMAIL', 'support@traveler.ps');
