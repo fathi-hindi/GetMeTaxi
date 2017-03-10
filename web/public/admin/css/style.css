@@ -3100,7 +3100,7 @@ section.content {
   background-color: rgba(0, 0, 0, 0.05);
   content: ".";
   position: absolute;
-  left: 80px;
+  left: 120px;
   top: 0;
   width: 0;
   height: 100%;
@@ -8000,3 +8000,14 @@ html.ie11 .dropdown-menu ul.menu li a {
 html.ie11 .bs-searchbox .form-control {
   width: 90%; }
 
+/* Custome style ===================== */
+.drivers-list .info-box {
+	height:120px;
+}
+.drivers-list .info-box .icon {
+	width:120px;
+}
+
+.info-box .content .text h3 {
+	margin-top: 0;
+}
