@@ -357,10 +357,10 @@
                             </ul>
                         </li>
                         <li>
-							<a href="about.html">About</a>
+							<a href="/content/about">About</a>
                         </li>
 						<li>
-							<a href="about.html">Contact Us</a>
+							<a href="/content/contact">Contact Us</a>
                         </li>
                     </ul>
                 </div>
