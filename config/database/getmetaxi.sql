@@ -30,14 +30,14 @@ USE `getmetaxi`;
 --
 
 CREATE TABLE `address` (
-  `address_id` bigint(20) NOT NULL,
-  `member_id` bigint(20) NOT NULL,
+  `address_id` bigint(11) NOT NULL,
+  `member_id` bigint(11) NOT NULL,
   `status` char(1) NOT NULL DEFAULT 'P',
-  `is_primary` int(11) NOT NULL DEFAULT '0',
+  `is_primary` int(1) NOT NULL DEFAULT '0',
   `address1` varchar(128) ,
   `address2` varchar(128) ,
   `nick_name` varchar(128) NOT NULL,
-  `city_id` bigint(20) ,
+  `city_id` bigint(11) ,
   `orgname` varchar(128) ,
   `last_create` timestamp DEFAULT CURRENT_TIMESTAMP,
   `phone` varchar(32),
@@ -62,7 +62,7 @@ INSERT INTO `address` (`address_id`, `member_id`, `status`, `is_primary`, `addre
 --
 
 CREATE TABLE `city` (
-  `city_id` bigint(20) NOT NULL,
+  `city_id` bigint(11) NOT NULL,
   `identifer` varchar(128) NOT NULL,
   `status` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -83,9 +83,9 @@ INSERT INTO `city` (`city_id`, `identifer`, `status`) VALUES
 --
 
 CREATE TABLE `citydesc` (
-  `city_id` bigint(20) NOT NULL,
+  `city_id` bigint(11) NOT NULL,
   `name` varchar(128) ,
-  `language_id` bigint(20) NOT NULL
+  `language_id` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -104,7 +104,7 @@ INSERT INTO `citydesc` (`city_id`, `name`, `language_id`) VALUES
 --
 
 CREATE TABLE `language` (
-  `language_id` bigint(20) NOT NULL,
+  `language_id` bigint(11) NOT NULL,
   `local_name` char(16) ,
   `language` char(5) ,
   `description` varchar(128) ,
@@ -126,7 +126,7 @@ INSERT INTO `language` (`language_id`, `local_name`, `language`, `description`, 
 --
 
 CREATE TABLE `member` (
-  `member_id` bigint(20) NOT NULL,
+  `member_id` bigint(11) NOT NULL,
   `type` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -146,7 +146,7 @@ INSERT INTO `member` (`member_id`, `type`) VALUES
 --
 
 CREATE TABLE `orderattr` (
-  `orders_id` bigint(20) NOT NULL,
+  `orders_id` bigint(11) NOT NULL,
   `attr_name` varchar(32) NOT NULL,
   `attr_value` varchar(128) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -158,11 +158,11 @@ CREATE TABLE `orderattr` (
 --
 
 CREATE TABLE `orders` (
-  `orders_id` bigint(20) NOT NULL,
+  `orders_id` bigint(11) NOT NULL,
   `status` char(1) NOT NULL DEFAULT 'P',
   `time_placed` timestamp DEFAULT CURRENT_TIMESTAMP,
   `last_update` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `users_id` bigint(20) NOT NULL,
+  `users_id` bigint(11) NOT NULL,
   `comment` varchar(254) ,
   `type` char(3) NOT NULL,
   `source` char(3) 
@@ -175,9 +175,9 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `taxioffice` (
-  `taxioffice_id` bigint(20) NOT NULL,
+  `taxioffice_id` bigint(11) NOT NULL,
   `status` int(1) DEFAULT '0',
-  `city_id` bigint(20) NOT NULL
+  `city_id` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -195,11 +195,11 @@ INSERT INTO `taxioffice` (`taxioffice_id`, `status`, `city_id`) VALUES
 --
 
 CREATE TABLE `taxiofficedesc` (
-  `taxioffice_id` bigint(20) NOT NULL,
-  `language_id` bigint(20) NOT NULL,
-  `phone` varchar(128) ,
-  `fax` varchar(128) ,
-  `mobile` varchar(128) ,
+  `taxioffice_id` bigint(11) NOT NULL,
+  `language_id` bigint(11) NOT NULL,
+  `phone` varchar(32) ,
+  `fax` varchar(32) ,
+  `mobile` varchar(32) ,
   `name` varchar(128) ,
   `url` varchar(254) ,
   `thumbnail` varchar(128) 
@@ -220,7 +220,7 @@ INSERT INTO `taxiofficedesc` (`taxioffice_id`, `language_id`, `phone`, `fax`, `m
 --
 
 CREATE TABLE `taxitype` (
-  `taxitype_id` bigint(20) NOT NULL,
+  `taxitype_id` bigint(11) NOT NULL,
   `identifer` varchar(128) NOT NULL,
   `max_passenger` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -240,8 +240,8 @@ INSERT INTO `taxitype` (`taxitype_id`, `identifer`, `max_passenger`) VALUES
 --
 
 CREATE TABLE `taxitypedesc` (
-  `taxitype_id` bigint(20) NOT NULL,
-  `language_id` bigint(20) NOT NULL,
+  `taxitype_id` bigint(11) NOT NULL,
+  `language_id` bigint(11) NOT NULL,
   `name` varchar(128) DEFAULT NULL,
   `description` varchar(128) DEFAULT NULL,
   `thumbnail` varchar(128) DEFAULT NULL
@@ -262,8 +262,8 @@ INSERT INTO `taxitypedesc` (`taxitype_id`, `language_id`, `name`, `description`,
 --
 
 CREATE TABLE `userpwdhst` (
-  `userpwdhst_id` bigint(20) NOT NULL,
-  `users_id` bigint(20) NOT NULL,
+  `userpwdhst_id` bigint(11) NOT NULL,
+  `users_id` bigint(11) NOT NULL,
   `logon_password` varchar(128) ,
   `salt` varchar(128) ,
   `creation_date` timestamp DEFAULT CURRENT_TIMESTAMP
@@ -283,12 +283,12 @@ INSERT INTO `userpwdhst` (`userpwdhst_id`, `users_id`, `logon_password`, `salt`,
 --
 
 CREATE TABLE `userreg` (
-  `users_id` bigint(20) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
+  `users_id` bigint(11) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '0',
   `logon_id` varchar(128) NOT NULL,
   `password` varchar(128) ,
-  `password_retries` int(11) default 0,
-  `password_expired` int(11) default 0,
+  `password_retries` int(1) default 0,
+  `password_expired` int(1) default 0,
   `salt` varchar(128) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -306,7 +306,7 @@ INSERT INTO `userreg` (`users_id`, `status`, `logon_id`, `password`, `password_r
 --
 
 CREATE TABLE `users` (
-  `users_id` bigint(20) NOT NULL,
+  `users_id` bigint(11) NOT NULL,
   `user_type` char(1) NOT NULL,
   `date_of_birth` date,
   `first_name` varchar(32) ,
@@ -333,8 +333,8 @@ INSERT INTO `users` (`users_id`, `user_type`, `date_of_birth`, `first_name`, `la
 --
 
 CREATE TABLE `taxi_drivers` (
-  `drivers_id` BIGINT(20) NOT NULL ,
-  `taxioffice_id` BIGINT(20) ,
+  `drivers_id` BIGINT(11) NOT NULL ,
+  `taxioffice_id` BIGINT(11) ,
   `status` INT(1) default 0 ,
   `markfordelete` INT(1) default 0 ,
   `creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
