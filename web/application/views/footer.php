@@ -30,31 +30,21 @@
                     <div class="col-md-3">
                         <h4>Newsletter</h4>
                         <form>
-                            <label>Enter your E-mail Address</label>
+							<p class="mt5"><small>Keep up with our latest news and events!</small></p>
+                            <label>Enter your E-mail And subcribe to our newsletter.</label>
                             <input type="text" class="form-control">
-                            <p class="mt5"><small>*We Never Send Spam</small>
-                            </p>
+							<br/>
                             <input type="submit" class="btn btn-primary" value="Subscribe">
                         </form>
                     </div>
                     <div class="col-md-2">
                         <ul class="list list-footer">
-                            <li><a href="#">About US</a>
-                            </li>
-                            <li><a href="#">Press Centre</a>
-                            </li>
-                            <li><a href="#">Best Price Guarantee</a>
-                            </li>
-                            <li><a href="#">Travel News</a>
-                            </li>
-                            <li><a href="#">Jobs</a>
-                            </li>
-                            <li><a href="#">Privacy Policy</a>
-                            </li>
-                            <li><a href="#">Terms of Use</a>
-                            </li>
-                            <li><a href="#">Feedback</a>
-                            </li>
+                            <li><a href="#">About US</a></li>
+							<li><a href="#">Our Team</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+							<li><a href="#">Help Center</a></li>
+                            <li><a href="#">Feedback</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
