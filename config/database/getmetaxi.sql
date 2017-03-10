@@ -34,12 +34,12 @@ CREATE TABLE `address` (
   `member_id` bigint(20) NOT NULL,
   `status` char(1) NOT NULL DEFAULT 'P',
   `is_primary` int(11) NOT NULL DEFAULT '0',
-  `address1` varchar(128) NOT NULL,
-  `address2` varchar(128) NOT NULL,
+  `address1` varchar(128) ,
+  `address2` varchar(128) ,
   `nick_name` varchar(128) NOT NULL,
-  `city_id` bigint(20) NOT NULL,
-  `orgname` varchar(128) NOT NULL,
-  `last_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `city_id` bigint(20) ,
+  `orgname` varchar(128) ,
+  `last_create` timestamp DEFAULT CURRENT_TIMESTAMP,
   `phone` varchar(32),
   `fax` varchar(32),
   `mobile` varchar(32)
@@ -84,7 +84,7 @@ INSERT INTO `city` (`city_id`, `identifer`, `status`) VALUES
 
 CREATE TABLE `citydesc` (
   `city_id` bigint(20) NOT NULL,
-  `name` varchar(128) NOT NULL,
+  `name` varchar(128) ,
   `language_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -105,11 +105,11 @@ INSERT INTO `citydesc` (`city_id`, `name`, `language_id`) VALUES
 
 CREATE TABLE `language` (
   `language_id` bigint(20) NOT NULL,
-  `local_name` char(16) NOT NULL,
-  `language` char(5) NOT NULL,
-  `description` varchar(128) NOT NULL,
-  `encoding` varchar(32) NOT NULL,
-  `country` char(2) NOT NULL
+  `local_name` char(16) ,
+  `language` char(5) ,
+  `description` varchar(128) ,
+  `encoding` varchar(32) ,
+  `country` char(2) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -148,7 +148,7 @@ INSERT INTO `member` (`member_id`, `type`) VALUES
 CREATE TABLE `orderattr` (
   `orders_id` bigint(20) NOT NULL,
   `attr_name` varchar(32) NOT NULL,
-  `attr_value` varchar(128) NOT NULL
+  `attr_value` varchar(128) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -160,12 +160,12 @@ CREATE TABLE `orderattr` (
 CREATE TABLE `orders` (
   `orders_id` bigint(20) NOT NULL,
   `status` char(1) NOT NULL DEFAULT 'P',
-  `time_placed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `time_placed` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `last_update` timestamp DEFAULT CURRENT_TIMESTAMP,
   `users_id` bigint(20) NOT NULL,
-  `comment` varchar(254) NOT NULL,
+  `comment` varchar(254) ,
   `type` char(3) NOT NULL,
-  `source` char(3) NOT NULL
+  `source` char(3) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -176,7 +176,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `taxioffice` (
   `taxioffice_id` bigint(20) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
+  `status` int(1) DEFAULT '0',
   `city_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -197,12 +197,12 @@ INSERT INTO `taxioffice` (`taxioffice_id`, `status`, `city_id`) VALUES
 CREATE TABLE `taxiofficedesc` (
   `taxioffice_id` bigint(20) NOT NULL,
   `language_id` bigint(20) NOT NULL,
-  `phone` varchar(128) NOT NULL,
-  `fax` varchar(128) NOT NULL,
-  `mobile` varchar(128) NOT NULL,
-  `name` varchar(128) NOT NULL,
-  `url` varchar(254) NOT NULL,
-  `thumbnail` varchar(128) NOT NULL
+  `phone` varchar(128) ,
+  `fax` varchar(128) ,
+  `mobile` varchar(128) ,
+  `name` varchar(128) ,
+  `url` varchar(254) ,
+  `thumbnail` varchar(128) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -264,9 +264,9 @@ INSERT INTO `taxitypedesc` (`taxitype_id`, `language_id`, `name`, `description`,
 CREATE TABLE `userpwdhst` (
   `userpwdhst_id` bigint(20) NOT NULL,
   `users_id` bigint(20) NOT NULL,
-  `logon_password` varchar(128) NOT NULL,
-  `salt` varchar(128) NOT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `logon_password` varchar(128) ,
+  `salt` varchar(128) ,
+  `creation_date` timestamp DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -286,10 +286,10 @@ CREATE TABLE `userreg` (
   `users_id` bigint(20) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   `logon_id` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `password_retries` int(11) NOT NULL,
-  `password_expired` int(11) NOT NULL,
-  `salt` varchar(128) NOT NULL
+  `password` varchar(128) ,
+  `password_retries` int(11) default 0,
+  `password_expired` int(11) default 0,
+  `salt` varchar(128) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -308,15 +308,15 @@ INSERT INTO `userreg` (`users_id`, `status`, `logon_id`, `password`, `password_r
 CREATE TABLE `users` (
   `users_id` bigint(20) NOT NULL,
   `user_type` char(1) NOT NULL,
-  `date_of_birth` date NOT NULL,
-  `first_name` varchar(32) NOT NULL,
-  `last_name` varchar(32) NOT NULL,
-  `middle_name` varchar(32) NOT NULL,
-  `phone` varchar(32) NOT NULL,
-  `fax` varchar(32) NOT NULL,
-  `mobile` varchar(32) NOT NULL,
-  `photo` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL
+  `date_of_birth` date,
+  `first_name` varchar(32) ,
+  `last_name` varchar(32) ,
+  `middle_name` varchar(32) ,
+  `phone` varchar(32) ,
+  `fax` varchar(32) ,
+  `mobile` varchar(32) ,
+  `photo` varchar(32) ,
+  `email` varchar(32) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -337,7 +337,7 @@ CREATE TABLE `taxi_drivers` (
   `taxioffice_id` BIGINT(20) ,
   `status` INT(1) default 0 ,
   `markfordelete` INT(1) default 0 ,
-  `creation_date` TIMESTAMP   
+  `creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -388,7 +388,7 @@ ALTER TABLE `member`
 -- Indexes for table `orderattr`
 --
 ALTER TABLE `orderattr`
-  ADD UNIQUE KEY `index_117` (`orders_id`);
+  ADD KEY `index_117` (`orders_id`);
 
 --
 -- Indexes for table `orders`
@@ -451,6 +451,7 @@ ALTER TABLE `users`
 -- Indexes for table `taxi_drivers`
 --
 ALTER TABLE `taxi_drivers`
+  ADD PRIMARY KEY (`drivers_id`),
   ADD KEY `index_116` (`taxioffice_id`);
   
 --
