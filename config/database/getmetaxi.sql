@@ -326,6 +326,24 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`users_id`, `user_type`, `date_of_birth`, `first_name`, `last_name`, `middle_name`, `phone`, `fax`, `mobile`, `photo`, `email`) VALUES
 (1016, 'R', '0000-00-00', 'Fathi', 'Hindi', '', '0597262705', '', '', '', 'fathi@test.com');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `taxi_driver`
+--
+
+CREATE TABLE `taxi_drivers` (
+  `drivers_id` BIGINT(20) NOT NULL ,
+  `taxioffice_id` BIGINT(20) ,
+  `status` INT(1) default 0 ,
+  `markfordelete` INT(1) default 0 ,
+  `creation_date` TIMESTAMP   
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `taxi_drivers`
+--
+
 --
 -- Indexes for dumped tables
 --
@@ -428,6 +446,13 @@ ALTER TABLE `userreg`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`users_id`);
 
+  
+--
+-- Indexes for table `taxi_drivers`
+--
+ALTER TABLE `taxi_drivers`
+  ADD KEY `index_116` (`taxioffice_id`);
+  
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -526,6 +551,14 @@ ALTER TABLE `userreg`
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_112` FOREIGN KEY (`users_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `taxi_drivers`
+  ADD CONSTRAINT `fk_117` FOREIGN KEY (`drivers_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_118` FOREIGN KEY (`taxioffice_id`) REFERENCES `taxioffice` (`taxioffice_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+  
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
