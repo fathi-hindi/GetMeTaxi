@@ -7568,7 +7568,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   padding: 20px;
   border: 1px solid #e6e6e6;
   -webkit-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 0;
   width: 153px;
 }
 .user-profile-statictics > li:last-child {
