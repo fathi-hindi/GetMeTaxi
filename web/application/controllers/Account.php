@@ -10,6 +10,7 @@ class Account extends CI_Controller {
         }
 		$this->load->model('logon_model');
 		$this->load->model('checkout_model');
+		$this->load->model('users_model');
     }
 	
 	/**
@@ -167,5 +168,19 @@ class Account extends CI_Controller {
 			$isValid = $this->logon_model->isValidPassword(getUserId(), $current_password);
 		} 
 		return $isValid;
+	}
+	
+	/**
+	 * Main function for address book view.
+	 */
+	public function users()
+	{
+		$data = array();
+		
+		$data['users'] = $this->users_model->findAllUsers();
+		
+		$this->load->view('header', $data);
+		$this->load->view('users_page', $data);
+		$this->load->view('footer', $data);
 	}
 }
