@@ -10,7 +10,6 @@ class Account extends CI_Controller {
         }
 		$this->load->model('logon_model');
 		$this->load->model('checkout_model');
-		$this->load->model('Statictics_model');
     }
 	
 	/**
@@ -21,7 +20,8 @@ class Account extends CI_Controller {
 		$data = array();
 		
 		$data['current_orders'] = $this->checkout_model->findCurrentOrdersByUsersId(getUserId());
-		$data['statictics'] = $this->getOverviewStatictics();
+		
+		//$data['statictics'] = $this->getOverviewStatictics();
 		
 		$this->load->view('header', $data);
 		$this->load->view('myaccount_page', $data);
@@ -167,159 +167,5 @@ class Account extends CI_Controller {
 			$isValid = $this->logon_model->isValidPassword(getUserId(), $current_password);
 		} 
 		return $isValid;
-	}
-	
-	/**
-	 * Main function for statictics view.
-	 */
-	public function statictics()
-	{
-		$data = array();
-		$statictics = array();
-		
-		$value = array();
-		$value = $this->populatePendingOrderStatictics($value);
-		$value = $this->populateSubmittedOrderStatictics($value);
-		
-		$statictics[] = array(
-			'title' => 'Orders Statictics',
-			'values' => $value
-		);
-		
-		$value2 = array();
-		$value2 = $this->populateGuestUsersStatictics($value2);
-		$value2 = $this->populateRegisteredUsersStatictics($value2);
-		
-		$statictics[] = array(
-			'title' => 'Users Statictics',
-			'values' => $value2
-		);
-		
-		$data['statictics'] = $statictics;
-		
-		$this->load->view('header', $data);
-		$this->load->view('statictics_page', $data);
-		$this->load->view('footer', $data);
-	}
-	
-	/**
-     * @Summary: Populate Pending Order Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function populatePendingOrderStatictics($array) {
-		$value = array (
-			'key' => 'Pending Orders',
-			'icon' => 'fa-truck',
-			'count' => 5
-		);
-		$array[] = $value;
-		return $array;
-	}
-	
-	/**
-     * @Summary: Populate Submitted Order Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function populateSubmittedOrderStatictics($array) {
-		$value = array (
-			'key' => 'Submitted Orders',
-			'icon' => 'fa-truck',
-			'count' => 45
-		);
-		$array[] = $value;
-		return $array;
-	}
-	
-	/**
-     * @Summary: Populate Guest Users Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function populateGuestUsersStatictics($array) {
-		$value = array (
-			'key' => 'Guest Users',
-			'icon' => 'fa-user',
-			'count' => 234
-		);
-		$array[] = $value;
-		return $array;
-	}
-	
-	/**
-     * @Summary: Populate Registered Users Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function populateRegisteredUsersStatictics($array) {
-		$value = array (
-			'key' => 'Registered Orders',
-			'icon' => 'fa-user',
-			'count' => 510
-		);
-		$array[] = $value;
-		return $array;
-	}
-	
-	/**
-     * @Summary: Get User Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function getOverviewStatictics() {
-		$result = array();
-		
-		$result['orders'] = $this->getOrdersStatictics();
-		$result['users'] = $this->getUsersStatictics();
-		$result['deliverys'] = $this->getDeliverysStatictics();
-		$result['taxi_offices'] = $this->getTaxiOfficesStatictics();
-		
-		return $result;
-	}
-	
-	/**
-     * @Summary: Get User Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function getOrdersStatictics() {
-		$count = 0;
-		if (getUserType() == USER_TYPE_REGISTERED) {
-			$count = $this->Statictics_model->getPassengerSubmittedOrdersCount();
-		} else if (getUserType() == USER_STATUS_OFFICE) {
-			$count = $this->Statictics_model->getOfficeReceivedOrdersCount();
-		} else if (getUserType() == USER_STATUS_DRIVER) {
-			$count = $this->Statictics_model->getDriverProcessedOrdersCount();
-		} else if (getUserType() == USER_STATUS_ADMIN) {
-			$count = $this->Statictics_model->getAllOrdersCount();
-		}
-		return $count;
-	}
-	
-	/**
-     * @Summary: Get User Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function getUsersStatictics() {
-		$count = 0;
-		if (getUserType() == USER_STATUS_ADMIN) {
-			$count = $this->Statictics_model->getAllUsersCount();
-		} 
-		return $count;
-	}
-	
-	/**
-     * @Summary: Get User Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function getDeliverysStatictics() {
-		return '0';
-	}
-	
-	/**
-     * @Summary: Get User Statictics.
-     * @Author:  Fathi Hindi - 03/10/2017.
-     */
-    private function getTaxiOfficesStatictics() {
-		$count = 0;
-		if (getUserType() == USER_STATUS_ADMIN) {
-			$count = $this->Statictics_model->getAllTaxiOfficeCount();
-		} 
-		return $count;
 	}
 }

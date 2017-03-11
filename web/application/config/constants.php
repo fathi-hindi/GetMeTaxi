@@ -117,9 +117,9 @@ define('USER_STATUS_PENDING_ACTIVATION', '4');
 // USER TYPE
 define('USER_TYPE_REGISTERED', 'R');
 define('USER_TYPE_GUEST', 'G');
-define('USER_STATUS_DRIVER', 'D');
-define('USER_STATUS_ADMIN', 'A');
-define('USER_STATUS_OFFICE', 'O');
+define('USER_TYPE_DRIVER', 'D');
+define('USER_TYPE_ADMIN', 'A');
+define('USER_TYPE_OFFICE', 'O');
 
 // MEMBER TYPE
 define('MEMBER_TYPE_USER', 'U');

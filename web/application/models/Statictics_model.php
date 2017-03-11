@@ -23,6 +23,26 @@ Class Statictics_model extends CI_Model {
     }
 	
 	/**
+     * @Summary: Get Guest Users Count.
+     * @Author:  Fathi Hindi.
+	 * @CreationDate: 03/10/2017.
+     */
+    public function getUsersCountByType($type) {
+        $condition = "user_type='" . $type . "'";
+		
+        $this->db->select('count(*) as total');
+        $this->db->from('users');
+        $this->db->where($condition);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result()[0]->total;
+        } else {
+            return 0;
+        }
+    }
+	
+	/**
      * @Summary: Get All Taxi Office Count.
      * @Author:  Fathi Hindi.
 	 * @CreationDate: 03/10/2017.
