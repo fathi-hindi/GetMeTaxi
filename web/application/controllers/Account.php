@@ -177,7 +177,29 @@ class Account extends CI_Controller {
 	{
 		$data = array();
 		
-		$data['users'] = $this->users_model->findAllUsers();
+		$type = $this->input->get('type');
+		$first_name = $this->input->get('firstName');
+		$last_name = $this->input->get('lastName');
+		$email = $this->input->get('email');
+		$filters = array();
+		
+		if (isset($type) && $type != '' && $type != 'ALL') {
+			$filters[] = array('name' => 'type', 'value' => $type);
+		}
+		
+		if (isset($first_name) && $first_name != '') {
+			$filters[] = array('name' => 'first_name', 'value' => $first_name);
+		}
+		
+		if (isset($last_name) && $last_name != '') {
+			$filters[] = array('name' => 'last_name', 'value' => $last_name);
+		}
+		
+		if (isset($email) && $email != '') {
+			$filters[] = array('name' => 'email', 'value' => $email);
+		}
+		
+		$data['users'] = $this->users_model->findAllUsersByFilters($filters);
 		
 		$this->load->view('header', $data);
 		$this->load->view('users_page', $data);
